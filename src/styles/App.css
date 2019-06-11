@@ -3,3 +3,8 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.user-input-instruction {
+  font-size: 1.75em;
+  padding: 0.5em;
+}

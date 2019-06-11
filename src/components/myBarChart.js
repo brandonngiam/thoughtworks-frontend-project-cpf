@@ -21,24 +21,23 @@ function MyBarChart(props) {
     : [];
 
   return (
-    <BarChart
-      width={500}
-      height={300}
-      data={barChartData}
-      margin={{
-        top: 20,
-        right: 30,
-        left: 20,
-        bottom: 5
-      }}
-    >
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
-      <YAxis />
-      <Tooltip />
-      <Legend />
-      <Bar dataKey="SGD" fill="#8884d8" />
-    </BarChart>
+    <div className="my-bar-chart">
+      <h2>CPF Balances at 55</h2>
+      <BarChart
+        title="X"
+        width={700}
+        height={400}
+        data={barChartData}
+        margin={{ left: 20 }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis tickFormatter={num => num.toLocaleString()} />
+        <Tooltip formatter={num => Math.round(num, 0).toLocaleString()} />
+        {/* <Legend /> */}
+        <Bar dataKey="SGD" fill="#93ABD2" />
+      </BarChart>
+    </div>
   );
 }
 

@@ -33,48 +33,80 @@ class App extends React.Component {
   };
 
   //remove me
-  componentDidMount() {
-    this.setState({
-      startAge: 30,
-      oa: 100,
-      sa: 100,
-      ma: 100,
-      monthlySalary: 5000
-    });
+  // componentDidMount() {
+  //   this.setState({
+  //     startAge: 30,
+  //     oa: 100,
+  //     sa: 100,
+  //     ma: 100,
+  //     monthlySalary: 5000
+  //   });
 
-    const input = {
-      startAge: 30,
-      oa: 100,
-      sa: 100,
-      ma: 100,
-      monthlySalary: 5000,
-      maxAge: 55
-    };
-    const result = dataGenerator(input);
-    this.setState({ data: result });
-    this.setState({ balanceAt55: result[result.length - 1] });
-  }
+  //   const input = {
+  //     startAge: 30,
+  //     oa: 100,
+  //     sa: 100,
+  //     ma: 100,
+  //     monthlySalary: 5000,
+  //     maxAge: 55
+  //   };
+  //   const result = dataGenerator(input);
+  //   this.setState({ data: result });
+  //   this.setState({ balanceAt55: result[result.length - 1] });
+  // }
 
   render() {
+    const tableNumFormat = props => props.value.toLocaleString();
     const tableColumns = [
-      { Header: "Age", accessor: "age" },
-      { Header: "Ordinary Account", accessor: "OA" },
-      { Header: "Special Account", accessor: "SA" },
-      { Header: "Medisave", accessor: "MA" },
-      { Header: "Total", accessor: "total" }
+      {
+        Header: "Age",
+        accessor: "age",
+        style: { textAlign: "center" },
+        headerClassName: "table-header"
+      },
+      {
+        Header: "Ordinary Account",
+        accessor: "OA",
+        Cell: tableNumFormat,
+        headerClassName: "table-header"
+      },
+      {
+        Header: "Special Account",
+        accessor: "SA",
+        Cell: tableNumFormat,
+        headerClassName: "table-header"
+      },
+      {
+        Header: "Medisave",
+        accessor: "MA",
+        Cell: tableNumFormat,
+        headerClassName: "table-header"
+      },
+      {
+        Header: "Total",
+        accessor: "total",
+        Cell: tableNumFormat,
+        headerClassName: "table-header"
+      }
     ];
 
     return (
       <React.Fragment>
-        <h1>Please enter your current information</h1>
+        <h1 className="user-input-instruction">
+          Submit your current information
+        </h1>
         <UserInputForm
           userInputHandler={this.userInputHandler}
           submitHandler={this.submitHandler}
           maxAge={this.maxAge}
         />
         <hr />
-        <MyBarChart balanceAt55={this.state.balanceAt55} />
-        <MyTable data={this.state.data} columns={tableColumns} />
+        {this.state.data === undefined ? null : (
+          <React.Fragment>
+            <MyBarChart balanceAt55={this.state.balanceAt55} />
+            <MyTable data={this.state.data} columns={tableColumns} />
+          </React.Fragment>
+        )}
       </React.Fragment>
     );
   }

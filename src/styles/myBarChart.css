@@ -3,3 +3,15 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.my-bar-chart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+}
+
+.my-bar-chart h2 {
+  padding: 0 0 20px 0;
+}

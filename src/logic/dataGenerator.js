@@ -50,10 +50,10 @@ function dataGenerator({ startAge, oa, sa, ma, monthlySalary, maxAge }) {
 
     thisYearStartingBalance = {
       age: previousYear.age + 1,
-      OA: currentOA,
-      SA: currentSA,
-      MA: currentMA,
-      total: currentOA + currentSA + currentMA
+      OA: Math.round(currentOA),
+      SA: Math.round(currentSA),
+      MA: Math.round(currentMA),
+      total: Math.round(currentOA + currentSA + currentMA)
     };
 
     data.push(thisYearStartingBalance);

@@ -3,3 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.my-form {
+  padding: 0.5em;
+}
+
+.my-form input {
+  margin: 0.3em 0em;
+  padding: 0.25em;
+  width: 300px;
+}

@@ -6,6 +6,8 @@ import MyBarChart from "./MyBarChart";
 import MyTable from "./MyTable";
 import MyStackedChart from "./MyStackedChart";
 import dataGenerator from "../logic/dataGenerator";
+import MyNavBar from "./MyNavBar";
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -91,25 +93,30 @@ class App extends React.Component {
     ];
 
     return (
-      <div className={this.state.data == null ? "app" : ""}>
-        <div className="user-input-container">
-          <UserInputForm
-            userInputHandler={this.userInputHandler}
-            submitHandler={this.submitHandler}
-            maxAge={this.maxAge}
-          />
-        </div>
+      <React.Fragment>
+        <MyNavBar />
+        <div
+          className={this.state.data == null ? "below-nav-bar-container" : ""}
+        >
+          <div className="user-input-container">
+            <UserInputForm
+              userInputHandler={this.userInputHandler}
+              submitHandler={this.submitHandler}
+              maxAge={this.maxAge}
+            />
+          </div>
 
-        {this.state.data === undefined ? null : (
-          <React.Fragment>
-            <div className="chart-container">
-              <MyBarChart balanceAt55={this.state.balanceAt55} />
-              <MyStackedChart data={this.state.data} />
-            </div>
-            <MyTable data={this.state.data} columns={tableColumns} />
-          </React.Fragment>
-        )}
-      </div>
+          {this.state.data === undefined ? null : (
+            <React.Fragment>
+              <div className="chart-container">
+                <MyBarChart balanceAt55={this.state.balanceAt55} />
+                <MyStackedChart data={this.state.data} />
+              </div>
+              <MyTable data={this.state.data} columns={tableColumns} />
+            </React.Fragment>
+          )}
+        </div>
+      </React.Fragment>
     );
   }
 }

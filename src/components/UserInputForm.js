@@ -4,7 +4,11 @@ import React from "react";
 function UserInputForm(props) {
   return (
     <div>
-      <form className="my-form" onSubmit={props.submitHandler}>
+      <form
+        className="my-form"
+        data-testid="my-form"
+        onSubmit={props.submitHandler}
+      >
         <label htmlFor="startAge">Age:</label> <br />
         <input
           type="number"
@@ -48,12 +52,12 @@ function UserInputForm(props) {
           min="0"
           placeholder="⩾ 0"
           name="ma"
-          id="sa"
+          id="ma"
           onChange={props.userInputHandler}
           required
         />
         <br />
-        <label htmlFor="monthlySalary">Current Monthly salary: </label>
+        <label htmlFor="monthlySalary">Current Monthly Salary: </label>
         <br />
         <input
           type="number"
@@ -65,7 +69,7 @@ function UserInputForm(props) {
           required
         />
         <br />
-        <input type="submit" />
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

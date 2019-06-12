@@ -1,0 +1,11 @@
+.my-stacked-chart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+}
+
+.my-stacked-chart h2 {
+  padding: 0 0 20px 0;
+}

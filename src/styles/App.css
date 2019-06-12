@@ -8,3 +8,14 @@
   font-size: 1.75em;
   padding: 0.5em;
 }
+
+.chart-container {
+  display: flex;
+  justify-content: center;
+}
+
+.user-input-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

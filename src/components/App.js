@@ -4,8 +4,8 @@ import "react-table/react-table.css";
 import UserInputForm from "./UserInputForm";
 import MyBarChart from "./myBarChart";
 import MyTable from "./myTable";
+import MyStackedChart from "./MyStackedChart";
 import dataGenerator from "../logic/dataGenerator";
-
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -92,18 +92,23 @@ class App extends React.Component {
 
     return (
       <React.Fragment>
-        <h1 className="user-input-instruction">
-          Submit your current information
-        </h1>
-        <UserInputForm
-          userInputHandler={this.userInputHandler}
-          submitHandler={this.submitHandler}
-          maxAge={this.maxAge}
-        />
+        <div className="user-input-container">
+          <h1 className="user-input-instruction">
+            Submit your current information
+          </h1>
+          <UserInputForm
+            userInputHandler={this.userInputHandler}
+            submitHandler={this.submitHandler}
+            maxAge={this.maxAge}
+          />
+        </div>
         <hr />
         {this.state.data === undefined ? null : (
           <React.Fragment>
-            <MyBarChart balanceAt55={this.state.balanceAt55} />
+            <div className="chart-container">
+              <MyBarChart balanceAt55={this.state.balanceAt55} />
+              <MyStackedChart data={this.state.data} />
+            </div>
             <MyTable data={this.state.data} columns={tableColumns} />
           </React.Fragment>
         )}

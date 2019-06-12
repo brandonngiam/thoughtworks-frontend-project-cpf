@@ -10,6 +10,8 @@
     "recharts": "^1.6.2"
   },
   "scripts": {
+    "test:watch": "react-scripts test --watch",
+    "test:coverage": "react-scripts test --coverage",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -29,5 +31,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/react": "^8.0.1",
+    "@types/jest": "^24.0.13",
+    "add": "^2.0.6",
+    "jest-dom": "^3.5.0"
   }
 }

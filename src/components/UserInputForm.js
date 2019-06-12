@@ -3,12 +3,12 @@ import React from "react";
 
 function UserInputForm(props) {
   return (
-    <div>
-      <form
-        className="my-form"
-        data-testid="my-form"
-        onSubmit={props.submitHandler}
-      >
+    <form
+      className="my-form"
+      data-testid="my-form"
+      onSubmit={props.submitHandler}
+    >
+      <div>
         <label htmlFor="startAge">Age:</label> <br />
         <input
           type="number"
@@ -20,8 +20,9 @@ function UserInputForm(props) {
           onChange={props.userInputHandler}
           required
         />
-        <br />
-        <label htmlFor="oa">Current Ordinary Account (OA) balance:</label>
+      </div>
+      <div>
+        <label htmlFor="oa">Current Ordinary Account (OA):</label>
         <br />
         <input
           type="number"
@@ -32,8 +33,9 @@ function UserInputForm(props) {
           onChange={props.userInputHandler}
           required
         />
-        <br />
-        <label htmlFor="sa">Current Special Account (SA) balance:</label>
+      </div>
+      <div>
+        <label htmlFor="sa">Current Special Account (SA):</label>
         <br />
         <input
           type="number"
@@ -44,8 +46,9 @@ function UserInputForm(props) {
           onChange={props.userInputHandler}
           required
         />
-        <br />
-        <label htmlFor="ma">Current Medisave Account (MA) balance:</label>
+      </div>
+      <div>
+        <label htmlFor="ma">Current Medisave Account (MA):</label>
         <br />
         <input
           type="number"
@@ -56,7 +59,8 @@ function UserInputForm(props) {
           onChange={props.userInputHandler}
           required
         />
-        <br />
+      </div>
+      <div>
         <label htmlFor="monthlySalary">Current Monthly Salary: </label>
         <br />
         <input
@@ -69,9 +73,11 @@ function UserInputForm(props) {
           required
         />
         <br />
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+        <div className="button-container">
+          <button type="submit">Submit</button>
+        </div>
+      </div>
+    </form>
   );
 }
 

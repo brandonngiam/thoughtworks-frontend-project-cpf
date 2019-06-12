@@ -5,19 +5,43 @@
 }
 
 .my-form {
+  background-image: url("../assets/pexels-photo-949587.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
   padding: 0.5em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  background-color: lightgray;
+  height: 100px;
+  width: 100%;
+  align-content: center;
+  justify-content: center;
+}
+
+.my-form label {
+  font-size: 0.9em;
+  font-weight: bold;
+  margin: 0.5em;
+  color: white;
 }
 
 .my-form input {
-  margin: 0.3em 0em;
+  margin: 0.3em 0.2em;
   padding: 0.25em;
-  width: 500px;
-  font-size: 1.1em;
+  width: 250px;
+  font-size: 1em;
 }
 
 .my-form button {
-  margin: 0.3em 0em;
+  margin: 0 1em;
   padding: 0.25em;
-  width: 500px;
-  font-size: 1.1em;
+  width: 200px;
+  height: 2em;
+  vertical-align: bottom;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
 }

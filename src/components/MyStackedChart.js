@@ -1,4 +1,4 @@
-import "../styles/myStackedChart.css";
+import "../styles/MyStackedChart.css";
 import React, { PureComponent } from "react";
 import {
   AreaChart,

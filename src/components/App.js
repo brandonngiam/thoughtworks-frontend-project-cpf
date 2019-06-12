@@ -2,8 +2,8 @@ import React from "react";
 import "../styles/App.css";
 import "react-table/react-table.css";
 import UserInputForm from "./UserInputForm";
-import MyBarChart from "./myBarChart";
-import MyTable from "./myTable";
+import MyBarChart from "./MyBarChart";
+import MyTable from "./MyTable";
 import MyStackedChart from "./MyStackedChart";
 import dataGenerator from "../logic/dataGenerator";
 class App extends React.Component {
@@ -33,27 +33,27 @@ class App extends React.Component {
   };
 
   //remove me
-  // componentDidMount() {
-  //   this.setState({
-  //     startAge: 30,
-  //     oa: 100,
-  //     sa: 100,
-  //     ma: 100,
-  //     monthlySalary: 5000
-  //   });
+  componentDidMount() {
+    this.setState({
+      startAge: 30,
+      oa: 100,
+      sa: 100,
+      ma: 100,
+      monthlySalary: 5000
+    });
 
-  //   const input = {
-  //     startAge: 30,
-  //     oa: 100,
-  //     sa: 100,
-  //     ma: 100,
-  //     monthlySalary: 5000,
-  //     maxAge: 55
-  //   };
-  //   const result = dataGenerator(input);
-  //   this.setState({ data: result });
-  //   this.setState({ balanceAt55: result[result.length - 1] });
-  // }
+    const input = {
+      startAge: 30,
+      oa: 100,
+      sa: 100,
+      ma: 100,
+      monthlySalary: 5000,
+      maxAge: 55
+    };
+    const result = dataGenerator(input);
+    this.setState({ data: result });
+    this.setState({ balanceAt55: result[result.length - 1] });
+  }
 
   render() {
     const tableNumFormat = props => props.value.toLocaleString();
@@ -93,16 +93,13 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <div className="user-input-container">
-          <h1 className="user-input-instruction">
-            Submit your current information
-          </h1>
           <UserInputForm
             userInputHandler={this.userInputHandler}
             submitHandler={this.submitHandler}
             maxAge={this.maxAge}
           />
         </div>
-        <hr />
+
         {this.state.data === undefined ? null : (
           <React.Fragment>
             <div className="chart-container">

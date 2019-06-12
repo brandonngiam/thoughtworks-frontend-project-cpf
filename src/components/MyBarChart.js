@@ -1,4 +1,4 @@
-import "../styles/myBarChart.css";
+import "../styles/MyBarChart.css";
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 

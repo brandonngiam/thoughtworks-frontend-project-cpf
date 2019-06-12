@@ -15,13 +15,6 @@ describe("the main App", () => {
 
   // ### Pre-submission of user inputs ###
 
-  //Check that user instrutions rendered
-  it("should render user intructions", () => {
-    const { getByText } = render(<App />);
-    const userInstruction = getByText(/submit your current information/i);
-    expect(userInstruction).toBeInTheDocument();
-  });
-
   //Check that userform rendered
   it("should render UserInputForm", () => {
     const { getByTestId } = render(<App />);

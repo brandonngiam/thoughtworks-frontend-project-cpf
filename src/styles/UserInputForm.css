@@ -13,7 +13,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   background-color: lightgray;
-  height: 100px;
+  height: auto;
   width: 100%;
   align-content: center;
   justify-content: center;
@@ -34,11 +34,13 @@
 }
 
 .my-form button {
-  margin: 0 1em;
+  margin: 0.75em 1em;
   padding: 0.25em;
   width: 200px;
   height: 2em;
   vertical-align: bottom;
+  border-radius: 1%;
+  background-color: lightgrey;
 }
 
 .button-container {

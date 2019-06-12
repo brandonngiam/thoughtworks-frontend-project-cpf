@@ -17,7 +17,7 @@ function MyBarChart(props) {
       <h2>CPF Balances at 55</h2>
       <BarChart
         title="X"
-        width={600}
+        width={500}
         height={400}
         data={barChartData}
         margin={{ left: 20 }}

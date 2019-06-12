@@ -33,27 +33,27 @@ class App extends React.Component {
   };
 
   //remove me
-  componentDidMount() {
-    this.setState({
-      startAge: 30,
-      oa: 100,
-      sa: 100,
-      ma: 100,
-      monthlySalary: 5000
-    });
+  // componentDidMount() {
+  //   this.setState({
+  //     startAge: 30,
+  //     oa: 100,
+  //     sa: 100,
+  //     ma: 100,
+  //     monthlySalary: 5000
+  //   });
 
-    const input = {
-      startAge: 30,
-      oa: 100,
-      sa: 100,
-      ma: 100,
-      monthlySalary: 5000,
-      maxAge: 55
-    };
-    const result = dataGenerator(input);
-    this.setState({ data: result });
-    this.setState({ balanceAt55: result[result.length - 1] });
-  }
+  //   const input = {
+  //     startAge: 30,
+  //     oa: 100,
+  //     sa: 100,
+  //     ma: 100,
+  //     monthlySalary: 5000,
+  //     maxAge: 55
+  //   };
+  //   const result = dataGenerator(input);
+  //   this.setState({ data: result });
+  //   this.setState({ balanceAt55: result[result.length - 1] });
+  // }
 
   render() {
     const tableNumFormat = props => props.value.toLocaleString();
@@ -91,7 +91,7 @@ class App extends React.Component {
     ];
 
     return (
-      <React.Fragment>
+      <div className={this.state.data == null ? "app" : ""}>
         <div className="user-input-container">
           <UserInputForm
             userInputHandler={this.userInputHandler}
@@ -109,7 +109,7 @@ class App extends React.Component {
             <MyTable data={this.state.data} columns={tableColumns} />
           </React.Fragment>
         )}
-      </React.Fragment>
+      </div>
     );
   }
 }

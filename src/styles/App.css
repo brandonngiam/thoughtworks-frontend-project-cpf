@@ -4,6 +4,12 @@
   box-sizing: border-box;
 }
 
+.app {
+  display: flex;
+  height: 100vh;
+  align-items: center;
+}
+
 .user-input-instruction {
   font-size: 1.75em;
   padding: 0.5em;
@@ -19,4 +25,5 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
 }

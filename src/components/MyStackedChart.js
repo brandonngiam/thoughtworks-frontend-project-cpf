@@ -23,7 +23,7 @@ function MyStackedChart(props) {
     <div className="my-stacked-chart" data-testid="my-stacked-chart">
       <h2>Line Chart</h2>
       <AreaChart
-        width={600}
+        width={500}
         height={400}
         data={stackedChartData}
         margin={{

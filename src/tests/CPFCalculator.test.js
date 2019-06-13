@@ -4,12 +4,12 @@ import "jest-dom/extend-expect";
 import "@testing-library/react/cleanup-after-each";
 import { render } from "@testing-library/react";
 import { fireEvent } from "@testing-library/react/dist";
-import App from "../components/App";
+import CPFCalculator from "../components/CPFCalculator";
 
-describe("the main App", () => {
+describe("the CPFCalculator", () => {
   it("renders without crashing", () => {
     const div = document.createElement("div");
-    ReactDOM.render(<App />, div);
+    ReactDOM.render(<CPFCalculator />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 
@@ -17,21 +17,23 @@ describe("the main App", () => {
 
   //Check that userform rendered
   it("should render UserInputForm", () => {
-    const { getByTestId } = render(<App />);
+    const { getByTestId } = render(<CPFCalculator />);
     const userForm = getByTestId("my-form");
     expect(userForm).toBeInTheDocument();
   });
 
   //mycpf link rendered
   it("should render myCPF link for users to change balances", () => {
-    const { getByTestId } = render(<App />);
+    const { getByTestId } = render(<CPFCalculator />);
     const myCPFLink = getByTestId("mycpf-link");
     expect(myCPFLink).toBeInTheDocument();
   });
 
   // ### Post submission of user inputs ###
   it("should render a card, pie chart, bar chart, stacked chart and table", () => {
-    const { getByLabelText, getByText, getByTestId } = render(<App />);
+    const { getByLabelText, getByText, getByTestId } = render(
+      <CPFCalculator />
+    );
     const ageInput = getByLabelText(/age/i);
     const OAInput = getByLabelText(/ordinary account/i);
     const SAInput = getByLabelText(/special account/i);

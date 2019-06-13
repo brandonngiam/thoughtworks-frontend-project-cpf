@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.homepage-info {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.my-card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: 0.3s;
+  height: 400px;
+  width: 500px;
+  margin: 1.5em;
+}
+
+.my-card h3 {
+  padding: 1em 0.5em;
+  align-self: center;
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.my-card p {
+  padding: 0.25em 0.75em 0.25em 0.75em;
+}
+
+.my-card img {
+  margin: 0.25em 0 1em 0;
+  width: 220px;
+  height: 180px;
+}

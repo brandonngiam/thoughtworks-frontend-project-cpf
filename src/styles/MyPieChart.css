@@ -4,8 +4,12 @@
   box-sizing: border-box;
 }
 
+.my-pie-chart {
+  text-align: center;
+}
+
 .my-pie-chart h1 {
-  width: 400px;
+  width: 100%;
   font-size: 0.9em;
   font-style: italic;
 }

@@ -15,6 +15,7 @@ function UserInputForm(props) {
           min="1"
           max={props.maxAge}
           placeholder={"Between 1 to " + props.maxAge}
+          value={props.startAge}
           name="startAge"
           id="startAge"
           onChange={props.userInputHandler}
@@ -28,6 +29,7 @@ function UserInputForm(props) {
           type="number"
           min="0"
           placeholder="⩾ 0"
+          value={props.oa}
           name="oa"
           id="oa"
           onChange={props.userInputHandler}
@@ -41,6 +43,7 @@ function UserInputForm(props) {
           type="number"
           min="0"
           placeholder="⩾ 0"
+          value={props.sa}
           name="sa"
           id="sa"
           onChange={props.userInputHandler}
@@ -54,6 +57,7 @@ function UserInputForm(props) {
           type="number"
           min="0"
           placeholder="⩾ 0"
+          value={props.ma}
           name="ma"
           id="ma"
           onChange={props.userInputHandler}
@@ -69,12 +73,13 @@ function UserInputForm(props) {
           name="monthlySalary"
           id="monthlySalary"
           placeholder="⩾ 0"
+          value={props.monthlySalary}
           onChange={props.userInputHandler}
           required
         />
         <br />
         <div className="button-container">
-          <button type="submit">Submit</button>
+          <button type="submit">Simulate your CPF!</button>
         </div>
       </div>
     </form>

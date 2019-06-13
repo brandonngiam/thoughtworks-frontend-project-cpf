@@ -5,12 +5,12 @@ import { PieChart, Pie, Tooltip, Cell } from "recharts";
 function MyPieChart(props) {
   const data = [
     {
-      name: "Your Contribution",
+      name: "Self",
       value: props.data["yourContribution"]
     },
-    { name: "CPF Interest", value: props.data["interest"] },
+    { name: "Interest", value: props.data["interest"] },
     {
-      name: "Employer Contribution",
+      name: "Employer",
       value: props.data["employer"]
     }
   ];
@@ -25,19 +25,19 @@ function MyPieChart(props) {
         When you turn 55, how much of your CFP actually came out of your own
         pocket?
       </h1>
-      <PieChart width={400} height={250}>
+      <PieChart width={450} height={300}>
         <Pie
           dataKey="value"
           isAnimationActive={true}
           data={data}
-          outerRadius={80}
+          outerRadius={100}
           labelLine={false}
-          label={data =>
-            (data.value / total).toLocaleString(undefined, {
-              style: "percent",
-              minimumFractionDigits: 0
-            })
-          }
+          label={data => `
+          ${data.name}: ${(data.value / total).toLocaleString(undefined, {
+            style: "percent",
+            minimumFractionDigits: 0
+          })}
+          `}
         >
           {data.map((entry, index) => (
             <Cell key={index} fill={COLORS[index % COLORS.length]} />

@@ -5,6 +5,14 @@
 }
 
 .my-link {
-  padding: 0.5em;
+  padding: 1em;
+  color: white;
   font-weight: bold;
+}
+
+.nav-bar {
+  display: flex;
+  background-color: rgb(23, 23, 116);
+  height: 3em;
+  align-content: center;
 }

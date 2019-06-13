@@ -3,12 +3,12 @@ import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 
 function MyBarChart(props) {
-  const barChartData = props.balanceAt55
+  const barChartData = props.data
     ? [
-        { name: "Ordinary", SGD: props.balanceAt55.OA },
-        { name: "Special", SGD: props.balanceAt55.SA },
-        { name: "Medisave", SGD: props.balanceAt55.MA },
-        { name: "Total", SGD: props.balanceAt55.total }
+        { name: "Ordinary", SGD: props.data.OA },
+        { name: "Special", SGD: props.data.SA },
+        { name: "Medisave", SGD: props.data.MA },
+        { name: "Total", SGD: props.data.total }
       ]
     : [];
 
@@ -17,8 +17,8 @@ function MyBarChart(props) {
       <h2>CPF Balances at 55</h2>
       <BarChart
         title="X"
-        width={500}
-        height={400}
+        width={400}
+        height={300}
         data={barChartData}
         margin={{ left: 20 }}
       >

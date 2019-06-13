@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.my-keyinfo-card {
+  padding: 2em;
+}
+
+.my-keyinfo-card h1 {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+
+.my-keyinfo-card ul li ul li {
+  padding: 0 0.25em;
+  font-size: 0.75em;
+}

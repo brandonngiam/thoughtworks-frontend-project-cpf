@@ -1,0 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.my-pie-chart h1 {
+  width: 400px;
+  font-size: 0.9em;
+  font-style: italic;
+}

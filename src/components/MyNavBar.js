@@ -1,13 +1,15 @@
 import "../styles/MyNavBar.css";
 import React from "react";
-import { Navbar, NavbarBrand, Nav, NavLink } from "reactstrap";
+import { Navbar, Nav, NavLink } from "reactstrap";
 
 function MyNavBar() {
   return (
     <React.Fragment>
       <Navbar>
-        <NavbarBrand href="">Home</NavbarBrand>
         <Nav className="mr-auto">
+          <NavLink className="my-link" href="">
+            Calculator
+          </NavLink>
           <NavLink className="my-link" href="">
             Objectives
           </NavLink>
@@ -17,7 +19,7 @@ function MyNavBar() {
           <NavLink className="my-link" href="">
             CPF rules
           </NavLink>
-          <NavLink className="my-link" href="">
+          <NavLink className="my-link" href="https://www.cpf.gov.sg/Members">
             myCPF
           </NavLink>
         </Nav>

@@ -22,8 +22,15 @@ describe("the main App", () => {
     expect(userForm).toBeInTheDocument();
   });
 
+  //mycpf link rendered
+  it("should render myCPF link for users to change balances", () => {
+    const { getByTestId } = render(<App />);
+    const myCPFLink = getByTestId("mycpf-link");
+    expect(myCPFLink).toBeInTheDocument();
+  });
+
   // ### Post submission of user inputs ###
-  it("should render a bar chart, stacked chart and table", () => {
+  it("should render a card, pie chart, bar chart, stacked chart and table", () => {
     const { getByLabelText, getByText, getByTestId } = render(<App />);
     const ageInput = getByLabelText(/age/i);
     const OAInput = getByLabelText(/ordinary account/i);
@@ -39,6 +46,11 @@ describe("the main App", () => {
     fireEvent.change(MAInput, { target: { value: 1 } });
     fireEvent.change(salaryInput, { target: { value: 1 } });
     fireEvent.click(submitButton);
+
+    //check for pie chart
+    expect(getByTestId("my-pie-chart")).toBeInTheDocument();
+    //check for card
+    expect(getByTestId("my-keyinfo-card")).toBeInTheDocument();
 
     //check for bar chart
     expect(getByTestId("my-bar-chart")).toBeInTheDocument();

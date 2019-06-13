@@ -7,3 +7,12 @@
 .table-header {
   font-weight: bold;
 }
+
+.rt-thead {
+  position: sticky;
+}
+
+.rt-tbody {
+  overflow: visible;
+  height: 500px;
+}

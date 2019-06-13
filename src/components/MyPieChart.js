@@ -22,7 +22,7 @@ function MyPieChart(props) {
   return (
     <div className="my-pie-chart" data-testid="my-pie-chart">
       <h1>
-        You're 55 now. How much of your CFP actually came out of your own
+        When you turn 55, how much of your CFP actually came out of your own
         pocket?
       </h1>
       <PieChart width={400} height={250}>

@@ -1,6 +1,6 @@
 import "../styles/MyImportantNumCard.css";
 import React from "react";
-import { Card, CardText, CardBody, CardTitle } from "reactstrap";
+import { Card, CardBody, CardTitle } from "reactstrap";
 
 function MyImportantNumCard(props) {
   return (

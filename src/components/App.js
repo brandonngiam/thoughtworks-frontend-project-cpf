@@ -36,27 +36,27 @@ class App extends React.Component {
   };
 
   //remove me
-  componentDidMount() {
-    this.setState({
-      startAge: 30,
-      oa: 0,
-      sa: 0,
-      ma: 0,
-      monthlySalary: 102000 / 12
-    });
+  // componentDidMount() {
+  //   this.setState({
+  //     startAge: 30,
+  //     oa: 0,
+  //     sa: 0,
+  //     ma: 0,
+  //     monthlySalary: 102000 / 12
+  //   });
 
-    const input = {
-      startAge: 30,
-      oa: 0,
-      sa: 0,
-      ma: 0,
-      monthlySalary: 102000 / 12,
-      maxAge: 55
-    };
-    const result = dataGenerator(input);
-    this.setState({ data: result });
-    this.setState({ balanceAt55: result[result.length - 1] });
-  }
+  //   const input = {
+  //     startAge: 30,
+  //     oa: 0,
+  //     sa: 0,
+  //     ma: 0,
+  //     monthlySalary: 102000 / 12,
+  //     maxAge: 55
+  //   };
+  //   const result = dataGenerator(input);
+  //   this.setState({ data: result });
+  //   this.setState({ balanceAt55: result[result.length - 1] });
+  // }
 
   render() {
     return (

@@ -3,3 +3,8 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.my-link {
+  padding: 0.5em;
+  font-weight: bold;
+}

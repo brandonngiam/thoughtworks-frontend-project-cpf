@@ -6,7 +6,6 @@ import MyBarChart from "./MyBarChart";
 import MyTable from "./MyTable";
 import MyStackedChart from "./MyStackedChart";
 import dataGenerator from "../logic/dataGenerator";
-import MyNavBar from "./MyNavBar";
 import MyPieChart from "./MyPieChart";
 import MyImportantNumCard from "./MyImportantNumCard";
 
@@ -62,7 +61,6 @@ class CPFCalculator extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <MyNavBar />
         <div
           className={this.state.data == null ? "below-nav-bar-container" : ""}
         >

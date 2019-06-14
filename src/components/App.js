@@ -37,7 +37,6 @@ class App extends React.Component {
     };
     const result = dataGenerator(input);
     this.setState({ data: result });
-    this.setState({ balanceAt55: result[result.length - 1] });
     this.setState({ userInputted: true });
 
     //moves from home page to calculator
@@ -96,7 +95,6 @@ class App extends React.Component {
                 data={this.state.data}
                 userInputHandler={this.userInputHandler}
                 submitHandler={this.submitHandler}
-                balanceAt55={this.state.balanceAt55}
                 userInputted={this.state.userInputted}
                 startAge={this.state.startAge}
                 oa={this.state.oa}

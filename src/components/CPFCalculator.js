@@ -1,12 +1,9 @@
+import "../styles/DataVisualization.css";
 import React from "react";
 import "../styles/CPFCalculator.css";
 import "react-table/react-table.css";
 import UserInputForm from "./UserInputForm";
-import MyBarChart from "./MyBarChart";
-import MyTable from "./MyTable";
-import MyStackedChart from "./MyStackedChart";
-import MyPieChart from "./MyPieChart";
-import MyImportantNumCard from "./MyImportantNumCard";
+import DataVisualization from "./DataVisualization";
 
 class CPFCalculator extends React.Component {
   constructor(props) {
@@ -32,17 +29,7 @@ class CPFCalculator extends React.Component {
         </div>
 
         {this.props.userInputted ? (
-          <React.Fragment>
-            <div className="chart-container">
-              <div className="pie-table-container">
-                <MyImportantNumCard data={this.props.data} />
-                <MyPieChart data={this.props.balanceAt55} />
-              </div>
-              <MyBarChart data={this.props.balanceAt55} />
-              <MyStackedChart data={this.props.data} />
-            </div>
-            <MyTable data={this.props.data} />
-          </React.Fragment>
+          <DataVisualization data={this.props.data} />
         ) : (
           <div className="no-userinput-alert">
             <p>You need to provide us information to get results!</p>

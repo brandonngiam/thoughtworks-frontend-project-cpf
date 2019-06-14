@@ -30,7 +30,7 @@ describe("CPF Calculator", () => {
     expect(queryByTestId("my-table")).not.toBeInTheDocument();
   });
 
-  it("should render a card, pie chart, bar chart, stacked chart and table when user input submitted", () => {
+  it("should render data visualization when user input submitted", () => {
     const history = createMemoryHistory({ initialEntries: ["/"] });
     const { getByLabelText, getByTestId } = render(
       <Router history={history}>
@@ -52,15 +52,54 @@ describe("CPF Calculator", () => {
     fireEvent.change(salaryInput, { target: { value: 1 } });
     fireEvent.click(submitButton);
 
+    expect(getByTestId("data-visualization")).toBeInTheDocument();
+
     //check for pie chart
-    expect(getByTestId("my-pie-chart")).toBeInTheDocument();
-    //check for card
-    expect(getByTestId("my-keyinfo-card")).toBeInTheDocument();
-    //check for bar chart
-    expect(getByTestId("my-bar-chart")).toBeInTheDocument();
-    //check for stacked chart
-    expect(getByTestId("my-stacked-chart")).toBeInTheDocument();
-    //check for table
-    expect(getByTestId("my-table")).toBeInTheDocument();
+    // expect(getByTestId("my-pie-chart")).toBeInTheDocument();
+    // //check for card
+    // expect(getByTestId("my-keyinfo-card")).toBeInTheDocument();
+    // //check for bar chart
+    // expect(getByTestId("my-bar-chart")).toBeInTheDocument();
+    // //check for stacked chart
+    // expect(getByTestId("my-stacked-chart")).toBeInTheDocument();
+    // //check for table
+    // expect(getByTestId("my-table")).toBeInTheDocument();
+  });
+
+  it("should still render data visualization and user inputs when i navigate to and back from another page", () => {
+    const history = createMemoryHistory({ initialEntries: ["/"] });
+    const { getByLabelText, getByTestId, getByText } = render(
+      <Router history={history}>
+        <App />
+      </Router>
+    );
+    const ageInput = getByLabelText(/age/i);
+    const OAInput = getByLabelText(/ordinary account/i);
+    const SAInput = getByLabelText(/special account/i);
+    const MAInput = getByLabelText(/medisave account/i);
+    const salaryInput = getByLabelText(/monthly salary/i);
+    const submitButton = getByTestId("submit-button");
+
+    //change values
+    fireEvent.change(ageInput, { target: { value: 1 } });
+    fireEvent.change(OAInput, { target: { value: 2 } });
+    fireEvent.change(SAInput, { target: { value: 3 } });
+    fireEvent.change(MAInput, { target: { value: 4 } });
+    fireEvent.change(salaryInput, { target: { value: 5 } });
+    fireEvent.click(submitButton);
+
+    expect(getByTestId("data-visualization")).toBeInTheDocument();
+    fireEvent.click(getByText(/About/));
+    fireEvent.click(getByText(/Results/));
+
+    //check data visualization still there
+    expect(getByTestId("data-visualization")).toBeInTheDocument();
+
+    //check inputs unchanged
+    expect(ageInput.value).toEqual("1");
+    expect(OAInput.value).toEqual("2");
+    expect(SAInput.value).toEqual("3");
+    expect(MAInput.value).toEqual("4");
+    expect(salaryInput.value).toEqual("5");
   });
 });

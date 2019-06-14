@@ -22,20 +22,3 @@
   font-size: 2em;
   font-weight: bold;
 }
-
-.chart-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.mycpf-link {
-  margin: 1em 0 0.5em 1em;
-  font-size: 1em;
-  font-weight: bold;
-}
-.mycpf-link a {
-  margin: 0.4em;
-  font-weight: bold;
-  text-decoration: underline;
-}

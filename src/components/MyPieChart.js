@@ -3,19 +3,20 @@ import React from "react";
 import { PieChart, Pie, Tooltip, Cell } from "recharts";
 
 function MyPieChart(props) {
+  const balanceAt55 = props.data[props.data.length - 1];
   const data = [
     {
       name: "Self",
-      value: props.data["yourContribution"]
+      value: balanceAt55["yourContribution"]
     },
-    { name: "Interest", value: props.data["interest"] },
+    { name: "Interest", value: balanceAt55["interest"] },
     {
       name: "Employer",
-      value: props.data["employer"]
+      value: balanceAt55["employer"]
     }
   ];
 
-  const total = props.data.total;
+  const total = balanceAt55.total;
 
   const COLORS = ["#4db8ff", "#8884d8", "#8884d8"];
 

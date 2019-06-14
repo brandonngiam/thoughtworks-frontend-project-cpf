@@ -18,7 +18,7 @@ function MyBarChart(props) {
       <BarChart
         title="X"
         width={400}
-        height={300}
+        height={400}
         data={barChartData}
         margin={{ left: 20 }}
       >

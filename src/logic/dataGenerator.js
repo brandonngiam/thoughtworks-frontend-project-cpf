@@ -52,7 +52,7 @@ function dataGenerator({ startAge, oa, sa, ma, monthlySalary, maxAge }) {
 
     //contribution from yourself and employer
     let contributionRates = contributionRatesByAge.find(
-      obj => previousYear.age <= obj.age
+      data => previousYear.age <= data.age
     );
 
     let OA_Contribution =

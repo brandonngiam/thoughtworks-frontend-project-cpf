@@ -6,7 +6,9 @@ function UserInputForm(props) {
     <form
       className="my-form"
       data-testid="my-form"
-      onSubmit={props.submitHandler}
+      onSubmit={event => {
+        props.submitHandler(event, props.history);
+      }}
     >
       <div>
         <label htmlFor="startAge">Age:</label> <br />
@@ -79,7 +81,9 @@ function UserInputForm(props) {
         />
         <br />
         <div className="button-container">
-          <button type="submit">Simulate your CPF!</button>
+          <button type="submit" data-testid="submit-button">
+            Simulate your CPF!
+          </button>
         </div>
       </div>
     </form>

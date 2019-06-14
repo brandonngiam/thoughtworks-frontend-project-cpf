@@ -1,10 +1,11 @@
 import React from "react";
 import "../styles/App.css";
 import CPFCalculator from "./CPFCalculator";
-import ObjectivesPage from "./ObjectivesPage";
+import AboutPage from "./AboutPage";
 import dataGenerator from "../logic/dataGenerator";
-import { Navbar, Nav } from "reactstrap";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { Nav } from "reactstrap";
+import Homepage from "./Homepage";
+import { Route, Link } from "react-router-dom";
 
 class App extends React.Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class App extends React.Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  submitHandler = event => {
+  submitHandler = (event, history) => {
     event.preventDefault();
     const input = {
       startAge: Number(this.state.startAge),
@@ -38,21 +39,26 @@ class App extends React.Component {
     this.setState({ data: result });
     this.setState({ balanceAt55: result[result.length - 1] });
     this.setState({ userInputted: true });
+
+    //moves from home page to calculator
+    history.push("/results");
   };
 
   render() {
     return (
       <React.Fragment>
-        <Router>
-          <Nav className="nav-bar">
-            <Nav>
-              <Link className="my-link" to="/">
-                Home
-              </Link>
-              <Link className="my-link" to="/objective">
-                Objectives
-              </Link>
-              {/* <NavLink className="my-link" href="">
+        <Nav className="nav-bar" data-testid="nav-bar">
+          <Nav>
+            <Link className="my-link" to="/">
+              Home
+            </Link>
+            <Link className="my-link" to="/results">
+              Results
+            </Link>
+            <Link className="my-link" to="/about">
+              About
+            </Link>
+            {/* <NavLink className="my-link" href="">
               Assumptions
             </NavLink>
             <NavLink className="my-link" href="">
@@ -61,30 +67,47 @@ class App extends React.Component {
             <NavLink className="my-link" href="https://www.cpf.gov.sg/Members">
               myCPF
             </NavLink> */}
-            </Nav>
           </Nav>
-          <main>
-            <Route
-              exact
-              path="/"
-              render={() => (
-                <CPFCalculator
-                  data={this.state.data}
-                  userInputHandler={this.userInputHandler}
-                  submitHandler={this.submitHandler}
-                  balanceAt55={this.state.balanceAt55}
-                  userInputted={this.state.userInputted}
-                  startAge={this.state.startAge}
-                  oa={this.state.oa}
-                  sa={this.state.sa}
-                  ma={this.state.ma}
-                  monthlySalary={this.state.monthlySalary}
-                />
-              )}
-            />
-            <Route exact path="/objective" component={ObjectivesPage} />
-          </main>
-        </Router>
+        </Nav>
+        <main>
+          <Route
+            exact
+            path="/"
+            render={props => (
+              <Homepage
+                {...props}
+                userInputHandler={this.userInputHandler}
+                submitHandler={this.submitHandler}
+                maxAge={this.maxAge}
+                startAge={this.state.startAge}
+                oa={this.state.oa}
+                sa={this.state.sa}
+                ma={this.state.ma}
+                monthlySalary={this.state.monthlySalary}
+              />
+            )}
+          />
+          <Route
+            exact
+            path="/results"
+            render={props => (
+              <CPFCalculator
+                {...props}
+                data={this.state.data}
+                userInputHandler={this.userInputHandler}
+                submitHandler={this.submitHandler}
+                balanceAt55={this.state.balanceAt55}
+                userInputted={this.state.userInputted}
+                startAge={this.state.startAge}
+                oa={this.state.oa}
+                sa={this.state.sa}
+                ma={this.state.ma}
+                monthlySalary={this.state.monthlySalary}
+              />
+            )}
+          />
+          <Route exact path="/about" component={AboutPage} />
+        </main>
       </React.Fragment>
     );
   }

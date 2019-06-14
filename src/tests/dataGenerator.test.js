@@ -37,15 +37,15 @@ describe("dataGenerator function generates CPF simulated values", () => {
     };
     const result = dataGenerator(input);
     for (let i = 0; i < result.length; i++) {
-      const obj = result[i];
+      const year = result[i];
       //total = oa + sa + ma
-      expect(obj["total"]).toEqual(obj["OA"] + obj["SA"] + obj["MA"]);
+      expect(year["total"]).toEqual(year["OA"] + year["SA"] + year["MA"]);
       //total = interest earned + employer contribution + your own contribution
       if (i !== 0) {
         //skip starting year
-        expect(Math.round(obj["total"])).toEqual(
+        expect(Math.round(year["total"])).toEqual(
           Math.round(
-            obj["interest"] + obj["employer"] + obj["yourContribution"]
+            year["interest"] + year["employer"] + year["yourContribution"]
           )
         );
       }

@@ -10,12 +10,12 @@ import {
 } from "recharts";
 
 function MyStackedChart(props) {
-  const stackedChartData = props.data.map(obj => {
+  const stackedChartData = props.data.map(data => {
     return {
-      Age: obj.age,
-      Ordinary: obj.OA,
-      Special: obj.SA,
-      Medisave: obj.MA
+      Age: data.age,
+      Ordinary: data.OA,
+      Special: data.SA,
+      Medisave: data.MA
     };
   });
 
@@ -24,7 +24,7 @@ function MyStackedChart(props) {
       <h2>Growth</h2>
       <AreaChart
         width={400}
-        height={300}
+        height={400}
         data={stackedChartData}
         margin={{
           left: 20

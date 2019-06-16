@@ -26,11 +26,13 @@ function MyPieChart(props) {
         When you turn 55, how much of your CFP actually came out of your own
         pocket?
       </h1>
-      <PieChart width={450} height={300}>
+      <PieChart width={475} height={300}>
         <Pie
           dataKey="value"
           isAnimationActive={true}
           data={data}
+          cx="40%"
+          cy="50%"
           outerRadius={100}
           labelLine={false}
           label={data => `

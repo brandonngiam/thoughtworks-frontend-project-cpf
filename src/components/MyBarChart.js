@@ -18,10 +18,10 @@ function MyBarChart(props) {
       <h2>CPF Balances at 55</h2>
       <BarChart
         title="X"
-        width={400}
+        width={475}
         height={400}
         data={barChartData}
-        margin={{ left: 20 }}
+        margin={{ left: 15 }}
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />

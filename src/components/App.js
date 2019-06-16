@@ -57,15 +57,6 @@ class App extends React.Component {
             <Link className="my-link" to="/about">
               About
             </Link>
-            {/* <NavLink className="my-link" href="">
-              Assumptions
-            </NavLink>
-            <NavLink className="my-link" href="">
-              CPF rules
-            </NavLink>
-            <NavLink className="my-link" href="https://www.cpf.gov.sg/Members">
-              myCPF
-            </NavLink> */}
           </Nav>
         </Nav>
         <main>

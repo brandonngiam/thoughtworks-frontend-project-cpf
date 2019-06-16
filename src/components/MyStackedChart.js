@@ -23,11 +23,11 @@ function MyStackedChart(props) {
     <div className="my-stacked-chart" data-testid="my-stacked-chart">
       <h2>Growth</h2>
       <AreaChart
-        width={400}
+        width={475}
         height={400}
         data={stackedChartData}
         margin={{
-          left: 20
+          left: 15
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />

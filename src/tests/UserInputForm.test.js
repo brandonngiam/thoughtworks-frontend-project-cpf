@@ -13,6 +13,8 @@ describe("the user input form used to retrieve CPF details", () => {
         maxAge={55}
         OAToSAhandler={jest.fn()}
         transferFromOAtoSA={false}
+        maxAnnualContributionLimitHandler={jest.fn()}
+        maxAnnualContributionLimit={false}
       />
     );
     const ageInput = getByLabelText(/age/i);
@@ -25,7 +27,12 @@ describe("the user input form used to retrieve CPF details", () => {
 
   it("only allows number characters greater than or equal to zero in the 'Current Ordinary Account (OA) balance' field. Required field", () => {
     const { getByLabelText } = render(
-      <UserInputForm OAToSAhandler={jest.fn()} transferFromOAtoSA={false} />
+      <UserInputForm
+        OAToSAhandler={jest.fn()}
+        transferFromOAtoSA={false}
+        maxAnnualContributionLimitHandler={jest.fn()}
+        maxAnnualContributionLimit={false}
+      />
     );
     const OAInput = getByLabelText(/ordinary account/i);
     expect(OAInput).toHaveAttribute("type", "number");
@@ -36,7 +43,12 @@ describe("the user input form used to retrieve CPF details", () => {
 
   it("only allows number characters greater than or equal to zero in the 'Current Special Account (SA) balance' field. Required field", () => {
     const { getByLabelText } = render(
-      <UserInputForm OAToSAhandler={jest.fn()} transferFromOAtoSA={false} />
+      <UserInputForm
+        OAToSAhandler={jest.fn()}
+        transferFromOAtoSA={false}
+        maxAnnualContributionLimitHandler={jest.fn()}
+        maxAnnualContributionLimit={false}
+      />
     );
     const SAInput = getByLabelText(/special account/i);
     expect(SAInput).toHaveAttribute("type", "number");
@@ -47,7 +59,12 @@ describe("the user input form used to retrieve CPF details", () => {
 
   it("only allows number characters greater than or equal to zero in the 'Current Medisave Account (MA) balance' field. Required field", () => {
     const { getByLabelText } = render(
-      <UserInputForm OAToSAhandler={jest.fn()} transferFromOAtoSA={false} />
+      <UserInputForm
+        OAToSAhandler={jest.fn()}
+        transferFromOAtoSA={false}
+        maxAnnualContributionLimitHandler={jest.fn()}
+        maxAnnualContributionLimit={false}
+      />
     );
     const MAInput = getByLabelText(/medisave account/i);
     expect(MAInput).toHaveAttribute("type", "number");
@@ -58,7 +75,12 @@ describe("the user input form used to retrieve CPF details", () => {
 
   it("only allows number characters greater than or equal to zero in the 'Current Monthly Income' field. Required field", () => {
     const { getByLabelText } = render(
-      <UserInputForm OAToSAhandler={jest.fn()} transferFromOAtoSA={false} />
+      <UserInputForm
+        OAToSAhandler={jest.fn()}
+        transferFromOAtoSA={false}
+        maxAnnualContributionLimitHandler={jest.fn()}
+        maxAnnualContributionLimit={false}
+      />
     );
     const salaryInput = getByLabelText(/monthly income/i);
     expect(salaryInput).toHaveAttribute("type", "number");
@@ -69,10 +91,41 @@ describe("the user input form used to retrieve CPF details", () => {
 
   it("has button to allow users to submit data to generate CPF", () => {
     const { getByText } = render(
-      <UserInputForm OAToSAhandler={jest.fn()} transferFromOAtoSA={false} />
+      <UserInputForm
+        OAToSAhandler={jest.fn()}
+        transferFromOAtoSA={false}
+        maxAnnualContributionLimitHandler={jest.fn()}
+        maxAnnualContributionLimit={false}
+      />
     );
     const button = getByText(/simulate your cpf/i);
     expect(button).toBeInTheDocument();
     expect(button).toHaveAttribute("type", "submit");
+  });
+
+  it("should display oa to sa toggle", () => {
+    const { getByTestId } = render(
+      <UserInputForm
+        OAToSAhandler={jest.fn()}
+        transferFromOAtoSA={false}
+        maxAnnualContributionLimitHandler={jest.fn()}
+        maxAnnualContributionLimit={false}
+      />
+    );
+    const OAToSAToggle = getByTestId("oa-to-sa-toggle");
+    expect(OAToSAToggle).toBeInTheDocument();
+  });
+
+  it("should display max contribution limit toggle", () => {
+    const { getByTestId } = render(
+      <UserInputForm
+        OAToSAhandler={jest.fn()}
+        transferFromOAtoSA={false}
+        maxAnnualContributionLimitHandler={jest.fn()}
+        maxAnnualContributionLimit={false}
+      />
+    );
+    const OAToSAToggle = getByTestId("max-contribution-toggle");
+    expect(OAToSAToggle).toBeInTheDocument();
   });
 });

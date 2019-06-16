@@ -109,7 +109,10 @@ function AssumptionsPage(props) {
           })}{" "}
           per year.
         </li>
-        <li>Voluntary contribution</li>
+        <li>
+          We allow users to simulate the option of always maxing out the Annual
+          Contribution limit of $37,740 via voluntary contribution.
+        </li>
       </ul>
     </div>
   );

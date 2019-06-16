@@ -21,7 +21,8 @@ class App extends React.Component {
       sa: "",
       ma: "",
       salary: "",
-      transferFromOAtoSA: false
+      transferFromOAtoSA: false,
+      maxAnnualContributionLimit: false
     };
   }
 
@@ -37,9 +38,30 @@ class App extends React.Component {
         maxAge: Number(this.maxAge),
         frsGrowth: this.frsGrowth,
         bhsGrowth: this.bhsGrowth,
-        transferFromOAtoSA: checked
+        transferFromOAtoSA: checked,
+        maxAnnualContributionLimit: this.state.maxAnnualContributionLimit
       };
 
+      const result = dataGenerator(input);
+      this.setState({ data: result });
+    }
+  };
+
+  maxAnnualContributionLimitHandler = checked => {
+    this.setState({ maxAnnualContributionLimit: checked });
+    if (this.state.userInputted) {
+      const input = {
+        startAge: Number(this.state.startAge),
+        oa: Number(this.state.oa),
+        sa: Number(this.state.sa),
+        ma: Number(this.state.ma),
+        salary: Number(this.state.salary),
+        maxAge: Number(this.maxAge),
+        frsGrowth: this.frsGrowth,
+        bhsGrowth: this.bhsGrowth,
+        transferFromOAtoSA: this.state.transferFromOAtoSA,
+        maxAnnualContributionLimit: checked
+      };
       const result = dataGenerator(input);
       this.setState({ data: result });
     }
@@ -60,7 +82,8 @@ class App extends React.Component {
       maxAge: Number(this.maxAge),
       frsGrowth: this.frsGrowth,
       bhsGrowth: this.bhsGrowth,
-      transferFromOAtoSA: this.transferFromOAtoSA
+      transferFromOAtoSA: this.transferFromOAtoSA,
+      maxAnnualContributionLimit: this.state.maxAnnualContributionLimit
     };
     const result = dataGenerator(input);
     this.setState({ data: result });
@@ -69,23 +92,6 @@ class App extends React.Component {
     //moves from home page to calculator
     history.push("/results");
   };
-
-  // this reduces the need to key in user inputs to tes the cpf calculation page
-  // componentDidMount() {
-  //   const input = {
-  //     startAge: 30,
-  //     oa: 0,
-  //     sa: 0,
-  //     ma: 0,
-  //     salary: 4000,
-  //     maxAge: 55,
-  //     frsGrowth: 0.03,
-  //     bhsGrowth: 0.045
-  //   };
-  //   const result = dataGenerator(input);
-  //   this.setState({ data: result });
-  //   this.setState({ userInputted: true });
-  // }
 
   render() {
     return (
@@ -123,6 +129,12 @@ class App extends React.Component {
                 salary={this.state.salary}
                 OAToSAhandler={this.OAToSAhandler}
                 transferFromOAtoSA={this.state.transferFromOAtoSA}
+                maxAnnualContributionLimitHandler={
+                  this.maxAnnualContributionLimitHandler
+                }
+                maxAnnualContributionLimit={
+                  this.state.maxAnnualContributionLimit
+                }
               />
             )}
           />
@@ -143,6 +155,12 @@ class App extends React.Component {
                 salary={this.state.salary}
                 OAToSAhandler={this.OAToSAhandler}
                 transferFromOAtoSA={this.state.transferFromOAtoSA}
+                maxAnnualContributionLimitHandler={
+                  this.maxAnnualContributionLimitHandler
+                }
+                maxAnnualContributionLimit={
+                  this.state.maxAnnualContributionLimit
+                }
               />
             )}
           />

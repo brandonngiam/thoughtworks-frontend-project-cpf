@@ -33,7 +33,7 @@ function AboutPage() {
         <li>
           To help users optimize or increase their CPF balances via 1) moving
           Ordinary Account balances to the Special account 2) or via Voluntary
-          contribution.
+          contribution to hit the Annual Contribution Limit.
         </li>
       </ul>
     </div>

@@ -102,6 +102,17 @@ function MyTable(props) {
       style: { textAlign: "center" },
       Cell: tableNumFormat,
       headerClassName: "table-header"
+    },
+    {
+      Header: (
+        <p>
+          Voluntary <br /> Contribution/year
+        </p>
+      ),
+      accessor: "voluntaryContribution",
+      style: { textAlign: "center" },
+      Cell: tableNumFormat,
+      headerClassName: "table-header"
     }
   ];
 

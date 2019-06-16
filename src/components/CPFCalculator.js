@@ -30,6 +30,10 @@ class CPFCalculator extends React.Component {
             history={this.props.history}
             OAToSAhandler={this.props.OAToSAhandler}
             transferFromOAtoSA={this.props.transferFromOAtoSA}
+            maxAnnualContributionLimitHandler={
+              this.props.maxAnnualContributionLimitHandler
+            }
+            maxAnnualContributionLimit={this.props.maxAnnualContributionLimit}
           />
         </div>
 

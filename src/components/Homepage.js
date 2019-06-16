@@ -20,6 +20,10 @@ function Homepage(props) {
             history={props.history}
             OAToSAhandler={props.OAToSAhandler}
             transferFromOAtoSA={props.transferFromOAtoSA}
+            maxAnnualContributionLimitHandler={
+              props.maxAnnualContributionLimitHandler
+            }
+            maxAnnualContributionLimit={props.maxAnnualContributionLimit}
           />
         </div>
         <div className="description">

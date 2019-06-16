@@ -7,7 +7,8 @@ function dataGenerator({
   maxAge,
   frsGrowth,
   bhsGrowth,
-  transferFromOAtoSA
+  transferFromOAtoSA,
+  maxAnnualContributionLimit
 }) {
   const annualMaxSalary = 6000 * 12;
   const annualContributionLimit = 102000 * 0.37;
@@ -45,7 +46,8 @@ function dataGenerator({
     bhs: bhs,
     annualContributionLimit: annualContributionLimit,
     frsMetAge: frsMetAge,
-    bhsMetAge: bhsMetAge
+    bhsMetAge: bhsMetAge,
+    voluntaryContribution: 0
   };
   const data = [thisYearStartingBalance];
 
@@ -72,11 +74,17 @@ function dataGenerator({
     );
 
     let OA_Contribution =
-      Math.min(annualMaxSalary, salary * 12) * contributionRates.OA;
+      (maxAnnualContributionLimit
+        ? 102000
+        : Math.min(annualMaxSalary, salary * 12)) * contributionRates.OA;
     let SA_Contribution =
-      Math.min(annualMaxSalary, salary * 12) * contributionRates.SA;
+      (maxAnnualContributionLimit
+        ? 102000
+        : Math.min(annualMaxSalary, salary * 12)) * contributionRates.SA;
     let MA_Contribution =
-      Math.min(annualMaxSalary, salary * 12) * contributionRates.MA;
+      (maxAnnualContributionLimit
+        ? 102000
+        : Math.min(annualMaxSalary, salary * 12)) * contributionRates.MA;
 
     //tabulate numbers
     interestTotal +=
@@ -133,7 +141,14 @@ function dataGenerator({
       bhs: bhs,
       annualContributionLimit: annualContributionLimit,
       frsMetAge: frsMetAge,
-      bhsMetAge: bhsMetAge
+      bhsMetAge: bhsMetAge,
+      voluntaryContribution: !maxAnnualContributionLimit
+        ? 0
+        : OA_Contribution +
+          SA_Contribution +
+          MA_Contribution -
+          Math.min(annualMaxSalary, salary * 12) *
+            (contributionRates.OA + contributionRates.SA + contributionRates.MA)
     };
 
     data.push(thisYearStartingBalance);

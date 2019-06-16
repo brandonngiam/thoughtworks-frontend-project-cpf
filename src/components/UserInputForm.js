@@ -25,7 +25,6 @@ function UserInputForm(props) {
             onChange={props.userInputHandler}
             required
           />
-          {/* <br /> */}
           <div>
             <label data-testid="oa-to-sa-toggle">
               <span>Always transfer from OA to SA</span>
@@ -39,18 +38,30 @@ function UserInputForm(props) {
         </div>
       </div>
       <div>
-        <label htmlFor="oa">Current Ordinary Account (OA):</label>
-        <br />
-        <input
-          type="number"
-          min="0"
-          placeholder="⩾ 0"
-          value={props.oa}
-          name="oa"
-          id="oa"
-          onChange={props.userInputHandler}
-          required
-        />
+        <div>
+          <label htmlFor="oa">Current Ordinary Account (OA):</label>
+          <br />
+          <input
+            type="number"
+            min="0"
+            placeholder="⩾ 0"
+            value={props.oa}
+            name="oa"
+            id="oa"
+            onChange={props.userInputHandler}
+            required
+          />
+          <div>
+            <label data-testid="max-contribution-toggle">
+              <span>Max Annual Contribution Limit</span>
+              <Switch
+                className="react-switch"
+                onChange={props.maxAnnualContributionLimitHandler}
+                checked={props.maxAnnualContributionLimit}
+              />
+            </label>
+          </div>
+        </div>
       </div>
       <div>
         <label htmlFor="sa">Current Special Account (SA):</label>

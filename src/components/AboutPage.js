@@ -12,11 +12,11 @@ function AboutPage() {
           anytime after setting aside their Full Retirement Sum.
         </li>
         <li>
-          To help users understand the sources of our CPF balances. CPF balances
-          have three contribution sources: your own pocket (salary or voluntary
-          contribution), your employer's contribution, and from the government
-          in the form of interest. This tool will help users attribute these
-          three sources.
+          To help users understand the sources of their CPF balances. CPF
+          balances have three contribution sources: your own pocket (salary or
+          voluntary contribution), your employer's contribution, and from the
+          government in the form of interest. This tool will help users
+          attribute these three sources.
         </li>
         <li>
           To help users estimate 1) how much they can withdraw at 55 2) and CPF
@@ -27,7 +27,8 @@ function AboutPage() {
           the Basic Health Sum.
         </li>
         <li>
-          To help users understand how CPF rules actually affect their balances.
+          To help users understand how CPF rules actually affect their balances
+          in dollar terms.
         </li>
         <li>
           To help users optimize or increase their CPF balances via 1) moving

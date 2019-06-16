@@ -31,7 +31,7 @@ function MyPieChart(props) {
           dataKey="value"
           isAnimationActive={true}
           data={data}
-          cx="40%"
+          cx="50%"
           cy="50%"
           outerRadius={100}
           labelLine={false}

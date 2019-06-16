@@ -16,7 +16,7 @@ function Homepage(props) {
             oa={props.oa}
             sa={props.sa}
             ma={props.ma}
-            monthlySalary={props.monthlySalary}
+            salary={props.salary}
             history={props.history}
           />
         </div>

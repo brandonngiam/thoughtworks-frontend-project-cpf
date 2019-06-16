@@ -67,15 +67,15 @@ function UserInputForm(props) {
         />
       </div>
       <div>
-        <label htmlFor="monthlySalary">Current Monthly Salary: </label>
+        <label htmlFor="salary">Current Monthly Income: </label>
         <br />
         <input
           type="number"
           min="0"
-          name="monthlySalary"
-          id="monthlySalary"
+          name="salary"
+          id="salary"
           placeholder="⩾ 0"
-          value={props.monthlySalary}
+          value={props.salary}
           onChange={props.userInputHandler}
           required
         />

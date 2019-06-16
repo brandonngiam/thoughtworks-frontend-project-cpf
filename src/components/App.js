@@ -2,22 +2,25 @@ import React from "react";
 import "../styles/App.css";
 import CPFCalculator from "./CPFCalculator";
 import AboutPage from "./AboutPage";
+import AssumptionsPage from "./AssumptionsPage";
 import dataGenerator from "../logic/dataGenerator";
-import { Nav } from "reactstrap";
 import Homepage from "./Homepage";
+import { Nav } from "reactstrap";
 import { Route, Link } from "react-router-dom";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.maxAge = 55;
+    this.frsGrowth = 0.03;
+    this.bhsGrowth = 0.045;
     this.state = {
       userInputted: false,
       startAge: "",
       oa: "",
       sa: "",
       ma: "",
-      monthlySalary: ""
+      salary: ""
     };
   }
 
@@ -32,8 +35,10 @@ class App extends React.Component {
       oa: Number(this.state.oa),
       sa: Number(this.state.sa),
       ma: Number(this.state.ma),
-      monthlySalary: Number(this.state.monthlySalary),
-      maxAge: Number(this.maxAge)
+      salary: Number(this.state.salary),
+      maxAge: Number(this.maxAge),
+      frsGrowth: this.frsGrowth,
+      bhsGrowth: this.bhsGrowth
     };
     const result = dataGenerator(input);
     this.setState({ data: result });
@@ -42,6 +47,23 @@ class App extends React.Component {
     //moves from home page to calculator
     history.push("/results");
   };
+
+  //remove me
+  // componentDidMount() {
+  //   const input = {
+  //     startAge: 30,
+  //     oa: 0,
+  //     sa: 0,
+  //     ma: 0,
+  //     salary: 4000,
+  //     maxAge: 55,
+  //     frsGrowth: 0.03,
+  //     bhsGrowth: 0.045
+  //   };
+  //   const result = dataGenerator(input);
+  //   this.setState({ data: result });
+  //   this.setState({ userInputted: true });
+  // }
 
   render() {
     return (
@@ -56,6 +78,9 @@ class App extends React.Component {
             </Link>
             <Link className="my-link" to="/about">
               About
+            </Link>
+            <Link className="my-link" to="/assumptions">
+              Simulation Notes
             </Link>
           </Nav>
         </Nav>
@@ -73,7 +98,7 @@ class App extends React.Component {
                 oa={this.state.oa}
                 sa={this.state.sa}
                 ma={this.state.ma}
-                monthlySalary={this.state.monthlySalary}
+                salary={this.state.salary}
               />
             )}
           />
@@ -91,11 +116,21 @@ class App extends React.Component {
                 oa={this.state.oa}
                 sa={this.state.sa}
                 ma={this.state.ma}
-                monthlySalary={this.state.monthlySalary}
+                salary={this.state.salary}
               />
             )}
           />
           <Route exact path="/about" component={AboutPage} />
+          <Route
+            exact
+            path="/assumptions"
+            render={() => (
+              <AssumptionsPage
+                frsGrowth={this.frsGrowth}
+                bhsGrowth={this.bhsGrowth}
+              />
+            )}
+          />
         </main>
       </React.Fragment>
     );

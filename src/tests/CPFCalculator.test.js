@@ -41,7 +41,7 @@ describe("CPF Calculator", () => {
     const OAInput = getByLabelText(/ordinary account/i);
     const SAInput = getByLabelText(/special account/i);
     const MAInput = getByLabelText(/medisave account/i);
-    const salaryInput = getByLabelText(/monthly salary/i);
+    const salaryInput = getByLabelText(/monthly income/i);
     const submitButton = getByTestId("submit-button");
 
     //change values
@@ -53,17 +53,6 @@ describe("CPF Calculator", () => {
     fireEvent.click(submitButton);
 
     expect(getByTestId("data-visualization")).toBeInTheDocument();
-
-    //check for pie chart
-    // expect(getByTestId("my-pie-chart")).toBeInTheDocument();
-    // //check for card
-    // expect(getByTestId("my-keyinfo-card")).toBeInTheDocument();
-    // //check for bar chart
-    // expect(getByTestId("my-bar-chart")).toBeInTheDocument();
-    // //check for stacked chart
-    // expect(getByTestId("my-stacked-chart")).toBeInTheDocument();
-    // //check for table
-    // expect(getByTestId("my-table")).toBeInTheDocument();
   });
 
   it("should still render data visualization and user inputs when i navigate to and back from another page", () => {
@@ -77,7 +66,7 @@ describe("CPF Calculator", () => {
     const OAInput = getByLabelText(/ordinary account/i);
     const SAInput = getByLabelText(/special account/i);
     const MAInput = getByLabelText(/medisave account/i);
-    const salaryInput = getByLabelText(/monthly salary/i);
+    const salaryInput = getByLabelText(/monthly income/i);
     const submitButton = getByTestId("submit-button");
 
     //change values
@@ -101,5 +90,36 @@ describe("CPF Calculator", () => {
     expect(SAInput.value).toEqual("3");
     expect(MAInput.value).toEqual("4");
     expect(salaryInput.value).toEqual("5");
+  });
+
+  it("should render summary tab when user clicks on it", () => {
+    const history = createMemoryHistory({ initialEntries: ["/"] });
+    const { getByLabelText, getByTestId, getByText, queryByTestId } = render(
+      <Router history={history}>
+        <App />
+      </Router>
+    );
+    const ageInput = getByLabelText(/age/i);
+    const OAInput = getByLabelText(/ordinary account/i);
+    const SAInput = getByLabelText(/special account/i);
+    const MAInput = getByLabelText(/medisave account/i);
+    const salaryInput = getByLabelText(/monthly income/i);
+    const submitButton = getByTestId("submit-button");
+
+    //change values
+    fireEvent.change(ageInput, { target: { value: 1 } });
+    fireEvent.change(OAInput, { target: { value: 1 } });
+    fireEvent.change(SAInput, { target: { value: 1 } });
+    fireEvent.change(MAInput, { target: { value: 1 } });
+    fireEvent.change(salaryInput, { target: { value: 1 } });
+    fireEvent.click(submitButton);
+
+    //summary not should not be there
+    expect(queryByTestId("summary")).not.toBeInTheDocument();
+
+    const summaryTab = getByText(/summary/i);
+    //click summary tab
+    fireEvent.click(summaryTab);
+    expect(getByTestId("summary")).toBeInTheDocument();
   });
 });

@@ -44,9 +44,9 @@ describe("the user input form used to retrieve CPF details", () => {
     expect(MAInput).toHaveAttribute("required");
   });
 
-  it("only allows number characters greater than or equal to zero in the 'Current Monthly salary' field. Required field", () => {
+  it("only allows number characters greater than or equal to zero in the 'Current Monthly Income' field. Required field", () => {
     const { getByLabelText } = render(<UserInputForm />);
-    const salaryInput = getByLabelText(/monthly salary/i);
+    const salaryInput = getByLabelText(/monthly income/i);
     expect(salaryInput).toHaveAttribute("type", "number");
     expect(salaryInput).toHaveAttribute("min", "0");
     expect(salaryInput).toHaveAttribute("placeholder", "⩾ 0");

@@ -4,14 +4,15 @@
   box-sizing: border-box;
 }
 
-.about {
+.notes {
   padding: 2em;
 }
 
-.about h1 {
-  size: 1em;
+.notes a {
+  font-weight: bold;
+  text-decoration: underline;
 }
 
-.about li {
+.notes li {
   padding: 0.3em;
 }

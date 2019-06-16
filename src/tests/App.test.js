@@ -43,14 +43,22 @@ describe("the CPFCalculator", () => {
     expect(getByTestId("homepage")).toBeInTheDocument();
     expect(queryByTestId("results")).not.toBeInTheDocument();
     expect(queryByTestId("about")).not.toBeInTheDocument();
+    expect(queryByTestId("assumptions")).not.toBeInTheDocument();
     fireEvent.click(getByText(/About/));
     expect(getByTestId("about")).toBeInTheDocument();
     expect(queryByTestId("results")).not.toBeInTheDocument();
     expect(queryByTestId("homepage")).not.toBeInTheDocument();
+    expect(queryByTestId("assumptions")).not.toBeInTheDocument();
     fireEvent.click(getByText(/Results/));
     expect(getByTestId("results")).toBeInTheDocument();
     expect(queryByTestId("about")).not.toBeInTheDocument();
     expect(queryByTestId("homepage")).not.toBeInTheDocument();
+    expect(queryByTestId("assumptions")).not.toBeInTheDocument();
+    fireEvent.click(getByText(/Simulation Notes/));
+    expect(getByTestId("assumptions")).toBeInTheDocument();
+    expect(queryByTestId("about")).not.toBeInTheDocument();
+    expect(queryByTestId("homepage")).not.toBeInTheDocument();
+    expect(queryByTestId("results")).not.toBeInTheDocument();
   });
 
   //display nav bar at all pages
@@ -73,7 +81,7 @@ describe("the CPFCalculator", () => {
     expect(SAInput.value).toEqual("");
     const MAInput = getByLabelText(/medisave account/i);
     expect(MAInput.value).toEqual("");
-    const salaryInput = getByLabelText(/monthly salary/i);
+    const salaryInput = getByLabelText(/monthly income/i);
     expect(salaryInput.value).toEqual("");
   });
 
@@ -125,7 +133,7 @@ describe("the CPFCalculator", () => {
     const OAInput = getByLabelText(/ordinary account/i);
     const SAInput = getByLabelText(/special account/i);
     const MAInput = getByLabelText(/medisave account/i);
-    const salaryInput = getByLabelText(/monthly salary/i);
+    const salaryInput = getByLabelText(/monthly income/i);
     const submitButton = getByTestId("submit-button");
 
     //change values and submit

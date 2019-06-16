@@ -5,12 +5,15 @@
 }
 
 .my-pie-chart {
-  text-align: center;
+  display: flex;
   width: 400px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .my-pie-chart h1 {
-  width: 100%;
+  width: 90%;
   font-size: 1em;
   font-style: italic;
 }

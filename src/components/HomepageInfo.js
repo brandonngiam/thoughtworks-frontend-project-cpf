@@ -1,5 +1,6 @@
 import "../styles/HomepageInfo.css";
 import React from "react";
+import { Link } from "react-router-dom";
 
 function HomepageInfo() {
   return (
@@ -29,7 +30,10 @@ function HomepageInfo() {
         <p>
           We know how you feel! And that is why we have built this tool to
           simulate your CPF balances till the age of 55 to aid you in retirement
-          planning.
+          planning. Learn more{" "}
+          <Link className="learn-more-link" to="/about">
+            here
+          </Link>
         </p>
       </div>
     </div>

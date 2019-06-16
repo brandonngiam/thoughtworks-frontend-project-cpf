@@ -4,6 +4,9 @@ import "../styles/CPFCalculator.css";
 import "react-table/react-table.css";
 import UserInputForm from "./UserInputForm";
 import DataVisualization from "./DataVisualization";
+import Summary from "./Summary";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
 
 class CPFCalculator extends React.Component {
   constructor(props) {
@@ -23,13 +26,25 @@ class CPFCalculator extends React.Component {
             oa={this.props.oa}
             sa={this.props.sa}
             ma={this.props.ma}
-            monthlySalary={this.props.monthlySalary}
+            salary={this.props.salary}
             history={this.props.history}
           />
         </div>
 
         {this.props.userInputted ? (
-          <DataVisualization data={this.props.data} />
+          <Tabs>
+            <TabList>
+              <Tab>Data</Tab>
+              <Tab>Summary</Tab>
+            </TabList>
+
+            <TabPanel>
+              <DataVisualization data={this.props.data} />
+            </TabPanel>
+            <TabPanel>
+              <Summary data={this.props.data} />
+            </TabPanel>
+          </Tabs>
         ) : (
           <div className="no-userinput-alert">
             <p>You need to provide us information to get results!</p>

@@ -1,8 +1,17 @@
-function dataGenerator({ startAge, oa, sa, ma, monthlySalary, maxAge }) {
-  const annualMaxSalary = 102000;
-  const annualContributionLimit = annualMaxSalary * 0.37;
-  const frs = 176000;
-  const bhs = 57200;
+function dataGenerator({
+  startAge,
+  oa,
+  sa,
+  ma,
+  salary,
+  maxAge,
+  frsGrowth,
+  bhsGrowth
+}) {
+  const annualMaxSalary = 6000 * 12;
+  const annualContributionLimit = 102000 * 0.37;
+  let frs = 176000;
+  let bhs = 57200;
   const OA_InterestRate = 0.025;
   const SA_InterestRate = 0.04;
   const MA_InterestRate = 0.04;
@@ -19,6 +28,8 @@ function dataGenerator({ startAge, oa, sa, ma, monthlySalary, maxAge }) {
   let currentMA = ma;
   let interestTotal = 0;
   let employerTotal = 0;
+  let frsMetAge = -1;
+  let bhsMetAge = -1;
 
   let thisYearStartingBalance = {
     age: startAge,
@@ -31,12 +42,16 @@ function dataGenerator({ startAge, oa, sa, ma, monthlySalary, maxAge }) {
     employer: employerTotal,
     frs: frs,
     bhs: bhs,
-    annualContributionLimit: annualContributionLimit
+    annualContributionLimit: annualContributionLimit,
+    frsMetAge: frsMetAge,
+    bhsMetAge: bhsMetAge
   };
   const data = [thisYearStartingBalance];
 
   for (let age = startAge; age < maxAge; age++) {
     let previousYear = data[data.length - 1];
+    frs = frs * (1 + frsGrowth);
+    bhs = bhs * (1 + bhsGrowth);
 
     //interest
     let OA_EarnedInterest = previousYear.OA * OA_InterestRate;
@@ -56,18 +71,17 @@ function dataGenerator({ startAge, oa, sa, ma, monthlySalary, maxAge }) {
     );
 
     let OA_Contribution =
-      Math.min(annualMaxSalary, monthlySalary * 12) * contributionRates.OA;
+      Math.min(annualMaxSalary, salary * 12) * contributionRates.OA;
     let SA_Contribution =
-      Math.min(annualMaxSalary, monthlySalary * 12) * contributionRates.SA;
+      Math.min(annualMaxSalary, salary * 12) * contributionRates.SA;
     let MA_Contribution =
-      Math.min(annualMaxSalary, monthlySalary * 12) * contributionRates.MA;
+      Math.min(annualMaxSalary, salary * 12) * contributionRates.MA;
 
     //tabulate numbers
     interestTotal +=
       OA_EarnedInterest + SA_EarnedInterest + MA_EarnedInterest + extraInt;
     employerTotal +=
-      Math.min(annualMaxSalary, monthlySalary * 12) *
-      contributionRates.employerShare;
+      Math.min(annualMaxSalary, salary * 12) * contributionRates.employerShare;
     currentOA += OA_EarnedInterest + OA_Contribution;
     currentSA += SA_EarnedInterest + extraInt + SA_Contribution;
     currentMA += MA_EarnedInterest + MA_Contribution;
@@ -84,6 +98,14 @@ function dataGenerator({ startAge, oa, sa, ma, monthlySalary, maxAge }) {
       }
     }
 
+    if (frsMetAge === -1 && currentOA + currentSA >= frs) {
+      frsMetAge = previousYear.age + 1;
+    }
+
+    if (bhsMetAge === -1 && currentMA >= bhs) {
+      bhsMetAge = previousYear.age + 1;
+    }
+
     thisYearStartingBalance = {
       age: previousYear.age + 1,
       OA: currentOA,
@@ -96,7 +118,9 @@ function dataGenerator({ startAge, oa, sa, ma, monthlySalary, maxAge }) {
       employer: employerTotal,
       frs: frs,
       bhs: bhs,
-      annualContributionLimit: annualContributionLimit
+      annualContributionLimit: annualContributionLimit,
+      frsMetAge: frsMetAge,
+      bhsMetAge: bhsMetAge
     };
 
     data.push(thisYearStartingBalance);

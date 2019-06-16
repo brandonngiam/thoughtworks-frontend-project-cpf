@@ -7,17 +7,17 @@ import MyImportantNumCard from "./MyImportantNumCard";
 
 function DataVisualization(props) {
   return (
-    <React.Fragment>
-      <div className="chart-container" data-testid="data-visualization">
+    <div className="data-visualization" data-testid="data-visualization">
+      <div className="chart-container">
+        <MyBarChart data={props.data} />
+        <MyStackedChart data={props.data} />
         <div>
           <MyImportantNumCard data={props.data} />
           <MyPieChart data={props.data} />
         </div>
-        <MyBarChart data={props.data} />
-        <MyStackedChart data={props.data} />
       </div>
       <MyTable data={props.data} />
-    </React.Fragment>
+    </div>
   );
 }
 

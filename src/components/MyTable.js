@@ -9,18 +9,26 @@ function MyTable(props) {
     {
       Header: "Age",
       accessor: "age",
-      style: { textAlign: "center" },
+      style: { textAlign: "center", whiteSpace: "unset" },
       headerClassName: "table-header"
     },
     {
-      Header: "Ordinary Account",
+      Header: (
+        <p>
+          Ordinary <br /> Account
+        </p>
+      ),
       accessor: "OA",
       style: { textAlign: "center" },
       Cell: tableNumFormat,
       headerClassName: "table-header"
     },
     {
-      Header: "Special Account",
+      Header: (
+        <p>
+          Special <br /> Account
+        </p>
+      ),
       accessor: "SA",
       style: { textAlign: "center" },
       Cell: tableNumFormat,
@@ -34,29 +42,63 @@ function MyTable(props) {
       headerClassName: "table-header"
     },
     {
-      Header: "Total",
+      Header: "Total CPF",
       accessor: "total",
       style: { textAlign: "center" },
       Cell: tableNumFormat,
       headerClassName: "table-header"
     },
     {
-      Header: "Your Contribution",
+      Header: (
+        <p>
+          Your <br /> Contribution
+        </p>
+      ),
       accessor: "yourContribution",
       style: { textAlign: "center" },
       Cell: tableNumFormat,
       headerClassName: "table-header"
     },
     {
-      Header: "Interest Earned",
+      Header: (
+        <p>
+          Total Interest <br /> Earned
+        </p>
+      ),
       accessor: "interest",
       style: { textAlign: "center" },
       Cell: tableNumFormat,
       headerClassName: "table-header"
     },
     {
-      Header: "Employer contribution",
+      Header: (
+        <p>
+          Total Employer <br /> Contribution
+        </p>
+      ),
       accessor: "employer",
+      style: { textAlign: "center" },
+      Cell: tableNumFormat,
+      headerClassName: "table-header"
+    },
+    {
+      Header: (
+        <p>
+          Projected <br /> FRS
+        </p>
+      ),
+      accessor: "frs",
+      style: { textAlign: "center" },
+      Cell: tableNumFormat,
+      headerClassName: "table-header"
+    },
+    {
+      Header: (
+        <p>
+          Projected <br /> BHS
+        </p>
+      ),
+      accessor: "bhs",
       style: { textAlign: "center" },
       Cell: tableNumFormat,
       headerClassName: "table-header"

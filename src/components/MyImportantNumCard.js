@@ -14,21 +14,25 @@ function MyImportantNumCard(props) {
             <li>
               Base interest:
               <ul>
-                <li>OA: 2.5%</li>
-                <li>SA: 4%</li>
-                <li>MA: 4%</li>
+                <li>OA: 2.5%/year</li>
+                <li>SA: 4%/year</li>
+                <li>MA: 4%/year</li>
+                <li>
+                  Extra interest: 1%/year on first 60k of combined balances (up
+                  to 20k in OA){" "}
+                </li>
               </ul>
             </li>
             <li>
-              {"Full Retirement Sum: " +
+              {"Current Full Retirement Sum: " +
                 Math.round(props.data[0].frs).toLocaleString()}
             </li>
             <li>
-              {"Basic Health Sum: " +
+              {"Current Basic Health Sum: " +
                 Math.round(props.data[0].bhs).toLocaleString()}
             </li>
             <li>
-              {"Annual Contribution Limit: " +
+              {"Current Annual Contribution Limit: " +
                 Math.round(
                   props.data[0].annualContributionLimit
                 ).toLocaleString()}

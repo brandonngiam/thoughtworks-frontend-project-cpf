@@ -48,7 +48,7 @@ class App extends React.Component {
     history.push("/results");
   };
 
-  //remove me
+  //this reduces the need to key in user inputs to tes the cpf calculation page
   // componentDidMount() {
   //   const input = {
   //     startAge: 30,

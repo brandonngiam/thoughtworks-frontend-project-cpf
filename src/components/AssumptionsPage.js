@@ -9,7 +9,11 @@ function AssumptionsPage(props) {
         <li>
           There are already many articles online that do a good job covering CPF
           rules. Read one{" "}
-          <a href="https://blog.moneysmart.sg/budgeting/cpf-contributions-singapore-guide-interest-rates-minimum-sum-calculator/">
+          <a
+            href="https://blog.moneysmart.sg/budgeting/cpf-contributions-singapore-guide-interest-rates-minimum-sum-calculator/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             here.
           </a>{" "}
         </li>
@@ -24,14 +28,22 @@ function AssumptionsPage(props) {
           Ceiling ($30,000/year) for other incomes like bonuses. This simulator
           only accounts for ordinary wages as additional wages such as bonus are
           less predicatble. See this{" "}
-          <a href="https://www.cpf.gov.sg/Members/Schemes/schemes/other-matters/cpf-contribution-for-employees">
+          <a
+            href="https://www.cpf.gov.sg/Members/Schemes/schemes/other-matters/cpf-contribution-for-employees"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             link
           </a>{" "}
           for more info.
         </li>
         <li>
           Currently, balances of your CPF earn the following{" "}
-          <a href="https://www.cpf.gov.sg/Members/AboutUs/about-us-info/cpf-interest-rates">
+          <a
+            href="https://www.cpf.gov.sg/Members/AboutUs/about-us-info/cpf-interest-rates"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             interest rates.
           </a>{" "}
           These interest rates may change in the future but we assume that they
@@ -45,7 +57,11 @@ function AssumptionsPage(props) {
         </li>
         <li>
           CPF uses different{" "}
-          <a href="https://www.cpf.gov.sg/Employers/EmployerGuides/employer-guides/paying-cpf-contributions/cpf-contribution-and-allocation-rates">
+          <a
+            href="https://www.cpf.gov.sg/Employers/EmployerGuides/employer-guides/paying-cpf-contributions/cpf-contribution-and-allocation-rates"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             allocation rates
           </a>{" "}
           (depending your age) to allocate between your accounts. We assume
@@ -59,7 +75,11 @@ function AssumptionsPage(props) {
         </li>
         <li>
           The{" "}
-          <a href="https://www.cpf.gov.sg/members/FAQ/schemes/healthcare/medisave/FAQDetails?category=healthcare&group=MediSave&ajfaqid=2189345&folderid=12917">
+          <a
+            href="https://www.cpf.gov.sg/members/FAQ/schemes/healthcare/medisave/FAQDetails?category=healthcare&group=MediSave&ajfaqid=2189345&folderid=12917"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Basic Health Sum (BHS)
           </a>{" "}
           is the maximum amount you can have in your Medisave account. We
@@ -73,7 +93,11 @@ function AssumptionsPage(props) {
         </li>
         <li>
           The{" "}
-          <a href="https://www.cpf.gov.sg/members/FAQ/schemes/retirement/retirement-sum-scheme/FAQDetails?category=retirement&group=Retirement+Sum+Scheme&ajfaqid=2190574&folderid=18088">
+          <a
+            href="https://www.cpf.gov.sg/members/FAQ/schemes/retirement/retirement-sum-scheme/FAQDetails?category=retirement&group=Retirement+Sum+Scheme&ajfaqid=2190574&folderid=18088"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             Full Retirement Sum
           </a>{" "}
           is the amount required to be set aside to receive monthly payouts from

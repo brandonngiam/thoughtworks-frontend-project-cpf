@@ -3,12 +3,25 @@ import "../styles/Summary.css";
 
 function Summary(props) {
   const balanceAt55 = props.data[props.data.length - 1];
-  console.log(balanceAt55);
   const frs = balanceAt55.frs;
-  const bhs = balanceAt55.bhs;
   const MA = balanceAt55.bhs;
   let OA = 0;
   let SA = 0;
+  let frsMetAgeStatement = "";
+  let bhsMetAgeStatement = "";
+
+  if (balanceAt55.frsMetAge === -1)
+    frsMetAgeStatement = "You never achieved your Full Retirement Sum.";
+  else
+    frsMetAgeStatement = `You achieved your Full Retirement Sum at age ${
+      balanceAt55.frsMetAge
+    }.`;
+  if (balanceAt55.bhsMetAge === -1)
+    bhsMetAgeStatement = "You never achieved your Basic Health Sum.";
+  else
+    bhsMetAgeStatement = `You achieved your Basic Health Sum at age ${
+      balanceAt55.bhsMetAge
+    }.`;
 
   if (balanceAt55.SA >= frs) {
     SA = balanceAt55.SA - frs;
@@ -110,16 +123,9 @@ function Summary(props) {
           At 55, if you do not withdraw your CFP balances, you will earn passive
           income of $${Math.round(passiveIncome).toLocaleString()} on the first
           year.
-        </li>
-        <li>
-          {" "}
-          <li>
-            You achieve your Full Retirement Sum at age {balanceAt55.frsMetAge}
-          </li>
-          <li>
-            You achieve your Basic Health Sum at age {balanceAt55.bhsMetAge}
-          </li>
-        </li>
+        </li>{" "}
+        <li>{frsMetAgeStatement}</li>
+        <li>{bhsMetAgeStatement}</li>
       </ul>
     </div>
   );

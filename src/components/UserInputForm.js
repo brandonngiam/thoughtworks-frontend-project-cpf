@@ -1,5 +1,6 @@
 import "../styles/UserInputForm.css";
 import React from "react";
+import Switch from "react-switch";
 
 function UserInputForm(props) {
   return (
@@ -11,18 +12,31 @@ function UserInputForm(props) {
       }}
     >
       <div>
-        <label htmlFor="startAge">Age:</label> <br />
-        <input
-          type="number"
-          min="1"
-          max={props.maxAge}
-          placeholder={"Between 1 to " + props.maxAge}
-          value={props.startAge}
-          name="startAge"
-          id="startAge"
-          onChange={props.userInputHandler}
-          required
-        />
+        <div>
+          <label htmlFor="startAge">Age:</label> <br />
+          <input
+            type="number"
+            min="1"
+            max={props.maxAge}
+            placeholder={"Between 1 to " + props.maxAge}
+            value={props.startAge}
+            name="startAge"
+            id="startAge"
+            onChange={props.userInputHandler}
+            required
+          />
+          {/* <br /> */}
+          <div>
+            <label data-testid="oa-to-sa-toggle">
+              <span>Always transfer from OA to SA</span>
+              <Switch
+                className="react-switch"
+                onChange={props.OAToSAhandler}
+                checked={props.transferFromOAtoSA}
+              />
+            </label>
+          </div>
+        </div>
       </div>
       <div>
         <label htmlFor="oa">Current Ordinary Account (OA):</label>

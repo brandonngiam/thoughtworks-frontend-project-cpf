@@ -8,7 +8,13 @@ describe("the user input form used to retrieve CPF details", () => {
   //Input fields only allow certain values
   //Checking the input field value also implicitly checks that the input fields exist!
   it("only allows number characters from 1-55 in the 'Age' field. Required field", () => {
-    const { getByLabelText } = render(<UserInputForm maxAge={55} />);
+    const { getByLabelText } = render(
+      <UserInputForm
+        maxAge={55}
+        OAToSAhandler={jest.fn()}
+        transferFromOAtoSA={false}
+      />
+    );
     const ageInput = getByLabelText(/age/i);
     expect(ageInput).toHaveAttribute("type", "number");
     expect(ageInput).toHaveAttribute("min", "1");
@@ -18,7 +24,9 @@ describe("the user input form used to retrieve CPF details", () => {
   });
 
   it("only allows number characters greater than or equal to zero in the 'Current Ordinary Account (OA) balance' field. Required field", () => {
-    const { getByLabelText } = render(<UserInputForm />);
+    const { getByLabelText } = render(
+      <UserInputForm OAToSAhandler={jest.fn()} transferFromOAtoSA={false} />
+    );
     const OAInput = getByLabelText(/ordinary account/i);
     expect(OAInput).toHaveAttribute("type", "number");
     expect(OAInput).toHaveAttribute("min", "0");
@@ -27,7 +35,9 @@ describe("the user input form used to retrieve CPF details", () => {
   });
 
   it("only allows number characters greater than or equal to zero in the 'Current Special Account (SA) balance' field. Required field", () => {
-    const { getByLabelText } = render(<UserInputForm />);
+    const { getByLabelText } = render(
+      <UserInputForm OAToSAhandler={jest.fn()} transferFromOAtoSA={false} />
+    );
     const SAInput = getByLabelText(/special account/i);
     expect(SAInput).toHaveAttribute("type", "number");
     expect(SAInput).toHaveAttribute("min", "0");
@@ -36,7 +46,9 @@ describe("the user input form used to retrieve CPF details", () => {
   });
 
   it("only allows number characters greater than or equal to zero in the 'Current Medisave Account (MA) balance' field. Required field", () => {
-    const { getByLabelText } = render(<UserInputForm />);
+    const { getByLabelText } = render(
+      <UserInputForm OAToSAhandler={jest.fn()} transferFromOAtoSA={false} />
+    );
     const MAInput = getByLabelText(/medisave account/i);
     expect(MAInput).toHaveAttribute("type", "number");
     expect(MAInput).toHaveAttribute("min", "0");
@@ -45,7 +57,9 @@ describe("the user input form used to retrieve CPF details", () => {
   });
 
   it("only allows number characters greater than or equal to zero in the 'Current Monthly Income' field. Required field", () => {
-    const { getByLabelText } = render(<UserInputForm />);
+    const { getByLabelText } = render(
+      <UserInputForm OAToSAhandler={jest.fn()} transferFromOAtoSA={false} />
+    );
     const salaryInput = getByLabelText(/monthly income/i);
     expect(salaryInput).toHaveAttribute("type", "number");
     expect(salaryInput).toHaveAttribute("min", "0");
@@ -54,7 +68,9 @@ describe("the user input form used to retrieve CPF details", () => {
   });
 
   it("has button to allow users to submit data to generate CPF", () => {
-    const { getByText } = render(<UserInputForm />);
+    const { getByText } = render(
+      <UserInputForm OAToSAhandler={jest.fn()} transferFromOAtoSA={false} />
+    );
     const button = getByText(/simulate your cpf/i);
     expect(button).toBeInTheDocument();
     expect(button).toHaveAttribute("type", "submit");

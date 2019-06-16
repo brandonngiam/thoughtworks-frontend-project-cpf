@@ -6,7 +6,8 @@ function dataGenerator({
   salary,
   maxAge,
   frsGrowth,
-  bhsGrowth
+  bhsGrowth,
+  transferFromOAtoSA
 }) {
   const annualMaxSalary = 6000 * 12;
   const annualContributionLimit = 102000 * 0.37;
@@ -95,6 +96,18 @@ function dataGenerator({
       else {
         currentOA += Math.max(0, currentSA + excess - frs);
         currentSA = Math.min(frs, currentSA + excess);
+      }
+    }
+
+    //the scenario where user wants to transer from OA to SA
+    if (transferFromOAtoSA && currentSA < frs) {
+      if (currentSA + currentOA > frs) {
+        const toTransfer = frs - currentSA;
+        currentSA = frs;
+        currentOA = currentOA - toTransfer;
+      } else {
+        currentSA = currentSA + currentOA;
+        currentOA = 0;
       }
     }
 

@@ -9,7 +9,7 @@ describe("the homepage", () => {
   it("should render userinput form", () => {
     const { getByTestId } = render(
       <Router>
-        <Homepage />
+        <Homepage OAToSAhandler={jest.fn()} transferFromOAtoSA={false} />
       </Router>
     );
     const userInputForm = getByTestId("my-form");
@@ -19,7 +19,7 @@ describe("the homepage", () => {
   it("should render homepage info", () => {
     const { getByTestId } = render(
       <Router>
-        <Homepage />
+        <Homepage OAToSAhandler={jest.fn()} transferFromOAtoSA={false} />{" "}
       </Router>
     );
     const homepageInfo = getByTestId("homepage-info");
@@ -29,7 +29,7 @@ describe("the homepage", () => {
   it("should have a description", () => {
     const { getByText } = render(
       <Router>
-        <Homepage />
+        <Homepage OAToSAhandler={jest.fn()} transferFromOAtoSA={false} />{" "}
       </Router>
     );
     const description = getByText(/cpf simulator/i);

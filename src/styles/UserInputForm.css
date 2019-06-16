@@ -45,6 +45,7 @@
 
 .button-container {
   display: flex;
+  width: 100%;
   justify-content: center;
 }
 
@@ -77,4 +78,13 @@ button:focus {
 
 button:active {
   transform: scale(0.99);
+}
+
+.react-switch {
+  vertical-align: middle;
+  margin-left: 4px;
+}
+
+.my-form span {
+  font-size: 0.8em;
 }

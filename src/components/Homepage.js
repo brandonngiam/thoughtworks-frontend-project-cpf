@@ -18,6 +18,8 @@ function Homepage(props) {
             ma={props.ma}
             salary={props.salary}
             history={props.history}
+            OAToSAhandler={props.OAToSAhandler}
+            transferFromOAtoSA={props.transferFromOAtoSA}
           />
         </div>
         <div className="description">

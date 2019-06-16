@@ -10,19 +10,34 @@ import App from "../components/App";
 
 describe("CPF Calculator", () => {
   it("should display user input form", () => {
-    const { getByTestId } = render(<CPFCalculator />);
+    const { getByTestId } = render(
+      <CPFCalculator OAToSAhandler={jest.fn()} transferFromOAtoSA={false} />
+    );
     const userInputForm = getByTestId("my-form");
     expect(userInputForm).toBeInTheDocument();
   });
 
+  it("should display oa to sa toggle", () => {
+    const { getByTestId } = render(
+      <CPFCalculator OAToSAhandler={jest.fn()} transferFromOAtoSA={false} />
+    );
+    const OAToSAToggle = getByTestId("oa-to-sa-toggle");
+    expect(OAToSAToggle).toBeInTheDocument();
+  });
+
   it("should indicate to user to provide information to generate results if form is not submitted", () => {
-    const { getByText } = render(<CPFCalculator />);
+    const { getByText } = render(
+      <CPFCalculator OAToSAhandler={jest.fn()} transferFromOAtoSA={false} />
+    );
     const description = getByText(/you need to provide us information/i);
     expect(description).toBeInTheDocument();
   });
 
   it("should not have any charts or table display information if form is not submitted", () => {
-    const { queryByTestId } = render(<CPFCalculator />);
+    const { queryByTestId } = render(
+      <CPFCalculator OAToSAhandler={jest.fn()} transferFromOAtoSA={false} />
+    );
+
     expect(queryByTestId("my-keyinfo-card")).not.toBeInTheDocument();
     expect(queryByTestId("my-pie-chart")).not.toBeInTheDocument();
     expect(queryByTestId("my-bar-chart")).not.toBeInTheDocument();

@@ -10,7 +10,8 @@ describe("dataGenerator function generates CPF simulated values", () => {
       salary: 100,
       maxAge: 55,
       frsGrowth: 0.01,
-      bhsGrowth: 0.01
+      bhsGrowth: 0.01,
+      transferFromOAtoSA: false
     };
     const result = dataGenerator(input);
     expect(result).toHaveLength(31);
@@ -23,7 +24,8 @@ describe("dataGenerator function generates CPF simulated values", () => {
       salary: 100,
       maxAge: 55,
       frsGrowth: 0.01,
-      bhsGrowth: 0.01
+      bhsGrowth: 0.01,
+      transferFromOAtoSA: false
     };
 
     const result2 = dataGenerator(input2);
@@ -39,7 +41,8 @@ describe("dataGenerator function generates CPF simulated values", () => {
       salary: 5000,
       maxAge: 55,
       frsGrowth: 0.01,
-      bhsGrowth: 0.01
+      bhsGrowth: 0.01,
+      transferFromOAtoSA: false
     };
     const result = dataGenerator(input);
     for (let i = 0; i < result.length; i++) {

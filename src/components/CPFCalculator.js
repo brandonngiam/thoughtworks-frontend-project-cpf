@@ -28,6 +28,8 @@ class CPFCalculator extends React.Component {
             ma={this.props.ma}
             salary={this.props.salary}
             history={this.props.history}
+            OAToSAhandler={this.props.OAToSAhandler}
+            transferFromOAtoSA={this.props.transferFromOAtoSA}
           />
         </div>
 

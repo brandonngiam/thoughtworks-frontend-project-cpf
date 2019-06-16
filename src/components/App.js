@@ -20,9 +20,30 @@ class App extends React.Component {
       oa: "",
       sa: "",
       ma: "",
-      salary: ""
+      salary: "",
+      transferFromOAtoSA: false
     };
   }
+
+  OAToSAhandler = checked => {
+    this.setState({ transferFromOAtoSA: checked });
+    if (this.state.userInputted) {
+      const input = {
+        startAge: Number(this.state.startAge),
+        oa: Number(this.state.oa),
+        sa: Number(this.state.sa),
+        ma: Number(this.state.ma),
+        salary: Number(this.state.salary),
+        maxAge: Number(this.maxAge),
+        frsGrowth: this.frsGrowth,
+        bhsGrowth: this.bhsGrowth,
+        transferFromOAtoSA: checked
+      };
+
+      const result = dataGenerator(input);
+      this.setState({ data: result });
+    }
+  };
 
   userInputHandler = event => {
     this.setState({ [event.target.name]: event.target.value });
@@ -38,7 +59,8 @@ class App extends React.Component {
       salary: Number(this.state.salary),
       maxAge: Number(this.maxAge),
       frsGrowth: this.frsGrowth,
-      bhsGrowth: this.bhsGrowth
+      bhsGrowth: this.bhsGrowth,
+      transferFromOAtoSA: this.transferFromOAtoSA
     };
     const result = dataGenerator(input);
     this.setState({ data: result });
@@ -48,7 +70,7 @@ class App extends React.Component {
     history.push("/results");
   };
 
-  //this reduces the need to key in user inputs to tes the cpf calculation page
+  // this reduces the need to key in user inputs to tes the cpf calculation page
   // componentDidMount() {
   //   const input = {
   //     startAge: 30,
@@ -99,6 +121,8 @@ class App extends React.Component {
                 sa={this.state.sa}
                 ma={this.state.ma}
                 salary={this.state.salary}
+                OAToSAhandler={this.OAToSAhandler}
+                transferFromOAtoSA={this.state.transferFromOAtoSA}
               />
             )}
           />
@@ -117,6 +141,8 @@ class App extends React.Component {
                 sa={this.state.sa}
                 ma={this.state.ma}
                 salary={this.state.salary}
+                OAToSAhandler={this.OAToSAhandler}
+                transferFromOAtoSA={this.state.transferFromOAtoSA}
               />
             )}
           />

@@ -51,7 +51,7 @@ function MyTable(props) {
     {
       Header: (
         <p>
-          Your <br /> Contribution
+          Your Total <br /> Contribution
         </p>
       ),
       accessor: "yourContribution",
